@@ -4,3 +4,5 @@
 
 layout: home
 ---
+
+List of the past Spinal Cord MRI workshops, linking to the agenda, presentations, minutes of the meeting, results of challenges, etc.
