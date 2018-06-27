@@ -2,7 +2,9 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: home
+layout: page
 ---
 
-List of the past Spinal Cord MRI workshops, linking to the agenda, presentations, minutes of the meeting, results of challenges, etc.
+This website aims at bringing closer the spinal cord MRI community, which includes clinicians, physicists and computer scientists.
+
+It provides a forum, workshop announcements (including material), common MRI acquisition protocol and a list of software dedicated to spinal cord MRI analysis.
