@@ -1,5 +1,5 @@
 ---
 layout: page
 title: Forum
-permalink: /forum/
+redirect_to: https://github.com/spinalcordmri/spinalcordmri.github.io/issues
 ---
