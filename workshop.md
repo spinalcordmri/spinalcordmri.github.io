@@ -6,4 +6,4 @@ layout: home
 title: Workshops
 ---
 
-List of the past Spinal Cord MRI workshops, linking to the agenda, presentations, minutes of the meeting, results of challenges, etc.
+This is a list of the past Spinal Cord MRI workshops. Each link points to the workshop material, which includes the agenda, presentations, minutes of the meeting, results of challenges, etc.
