@@ -6,4 +6,4 @@ layout: home
 title: Workshops
 ---
 
-This is a list of the past Spinal Cord MRI workshops. Each link points to the workshop material, which includes the agenda, presentations, minutes of the meeting, results of challenges, etc.
+The general aim of these workshops is to bring together spinal cord MRI researchers and clinicians from around the world, discuss the technical issues related to acquisition and processing of data and come up with collaborative solutions.
