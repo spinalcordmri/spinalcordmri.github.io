@@ -4,3 +4,7 @@
 
 Nice tutorials here:
 https://www.taniarascia.com/make-a-static-website-with-jekyll/
+
+## Add domain
+- Purchase domain, e.g. from Namecheap
+- configure it to the GH page: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
