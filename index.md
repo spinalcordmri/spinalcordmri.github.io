@@ -13,5 +13,3 @@ It provides a forum, workshop announcements (including material), common MRI acq
 
 **[Subscribe to the mailing list](https://goo.gl/forms/Q425YRKwZP5tsExF2)** if you
 wish to be informed about those events.
-
-Everyone can contribute to this website. More information [here](https://github.com/spinalcordmri/spinalcordmri.github.io).
