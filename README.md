@@ -17,17 +17,10 @@ https://www.taniarascia.com/make-a-static-website-with-jekyll/
 ### Set up Compute Canada instance
 
 - Create instance on Compute Canada
-  - https://graham.cloud.computecanada.ca/dashboard/project/
-  - HD space: 20GB min --> TO VALIDATE
+  - https://graham.cloud.computecanada.ca/dashboard/project/instances/
+
 
 - SSH permissions: add the "SSH" ingress rule to allow ssh into the instances:
-https://drive.google.com/open?id=1QHcMx4N8a3HGs5quRsaUJZ4_FzO67RIX
-add rules:
-~~~
-Ingress	IPv4	TCP	22 (SSH)	0.0.0.0/0
-Ingress	IPv4	TCP	80 (HTTP)	0.0.0.0/0
-Ingress	IPv4	TCP	443 (HTTPS)	0.0.0.0/0
-~~~
 
 To connect to server:
 ~~~
@@ -39,18 +32,16 @@ https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md
 
 Connect to server, then do:
 ~~~
+sudo su
 mkdir /var/discourse
-git clone https://github.com/discourse/discourse_docker.git /var/discourse
 cd /var/discourse
+git clone https://github.com/discourse/discourse_docker.git .
 ~~~
 
-- add valid SPF and DKIM records in your DNS
+- add valid SPF and DKIM records in your DNS:
 
-- Create a DNS A record for the `forum.spinalcordmri.org` subdomain in your DNS control panel, pointing to the IP address of your cloud instance where you are installing Discourse.
-  - Domain List > Manage > Advanced DNS > Add new record
-  - Type=A record, Host=forum, IP=floatingIP, TTL=automatic
-TODO: maybe add rule (DNS, HTTP...) to have discourse access server.
-TODO: remove DNS or HTTP rule (added them for checking...)
+- Create DNS records for github-page and discourse forum server:
+SCREENSHOTS: namecheap_add-records
 
 Setup Discourse install:
 ~~~
