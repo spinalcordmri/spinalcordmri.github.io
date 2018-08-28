@@ -30,6 +30,7 @@ theme: minima  # jekyll-theme-slate
 plugins:
   - jekyll-feed
   - jekyll-redirect-from
+future: true  # Publish posts or collection documents with a future date.
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
