@@ -104,6 +104,3 @@ Check that domain exists, and get info about registrar:
 ~~~
 whois spinalcordmri.org
 ~~~
-
-
--
