@@ -1,7 +1,5 @@
 ---
 layout: page
 title: Forum
-#redirect_to: https://github.com/spinalcordmri/spinalcordmri.github.io/issues
+redirect_to: http://forum.spinalcordmri.org/
 ---
-
-Under construction...
