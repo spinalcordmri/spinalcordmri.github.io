@@ -39,7 +39,7 @@ cd /var/discourse
 ~~~
 ./discourse-setup
 Hostname      : forum.spinalcordmri.org
-Email         : spinalcordmri@gmail.com
+Email         : xxx@gmail.com
 SMTP address  : smtp.sendgrid.net
 SMTP port     : 587
 SMTP username : apikey
@@ -55,7 +55,7 @@ Let's Encrypt : [press Enter]
 
 ### Configuring Google login for Discourse ([reference](https://meta.discourse.org/t/configuring-google-login-for-discourse/15858))
 
-Using the spinalcordmri@gmail.com account, go to https://console.developers.google.com, click on Credentials and create a new Project.
+Go to https://console.developers.google.com, click on Credentials and create a new Project.
 - Project name `Forum spinalcordmri`
 - Project id `forum-spinalcordmri`
 
