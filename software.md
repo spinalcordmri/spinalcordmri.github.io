@@ -13,6 +13,6 @@ List of software for processing multi-parametric MRI of the spinal cord (sorted 
 |[Spinal Cord Toolbox](https://github.com/neuropoly/spinalcordtoolbox) | Collection of tools for segmentation, atlas-based analysis, etc. | [De Leener et al. Neuroimage 2017](https://www.ncbi.nlm.nih.gov/pubmed/27720818) |
 | [spinalfmri8](http://post.queensu.ca/~stromanp/software.html) | Collection of tools for processing spinal cord fMRI data | TODO |
 | [SpineSeg](http://www.lni.hc.unicamp.br/app/spineseg/) | Spinal cord Segmentation | [Bergo et al. 2012](https://ieeexplore.ieee.org/document/6263238/) |
-| [SpineSegmentation](https://www.nitrc.org/projects/sylvainproject/) | Spine Segmentation module for 3DSlicer | TODO |
+| [SpineSegmentation](https://www.nitrc.org/projects/sylvainproject/) | Spine Segmentation module for 3DSlicer | [Jaume et al. 2010](https://na-mic.org/wiki/2010_Winter_Project_Week_Spine_Segmentation_Module_in_Slicer3) |
 
 If your software is not listed, please fork [this repository](https://github.com/spinalcordmri/spinalcordmri.github.io) and submit a pull request.
