@@ -16,9 +16,8 @@
 title: Spinal Cord MRI
 email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  This website aims at bringing closer the spinal cord MRI community, which includes clinicians, physicists and computer scientists.
+  It provides a forum, workshop announcements (including material), common MRI acquisition protocol and a list of software dedicated to spinal cord MRI analysis.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.spinalcordmri.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
