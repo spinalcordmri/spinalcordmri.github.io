@@ -7,9 +7,9 @@ layout: page
 
 ![My helpful screenshot]({{ "assets/cover_spinalcordmri_book.jpg" | absolute_url }}){:style="float: left; margin-right: 25px"}
 
-This website aims at bringing closer the spinal cord MRI community, which includes clinicians, physicists and computer scientists.
+This website aims at bringing closer the spinal cord MRI community, which includes clinicians, neuroscientists, physicists and computer scientists.
 
-It provides a forum, workshop announcements (including material), common MRI acquisition protocol and a list of software dedicated to spinal cord MRI analysis.
+It provides a forum, workshop announcements (including material), common MRI acquisition protocols and a list of software dedicated to spinal cord MRI analysis.
 
 **[Subscribe to the mailing list](https://goo.gl/forms/Q425YRKwZP5tsExF2)** if you
 wish to be informed about those events.
