@@ -12,4 +12,4 @@ This website aims at bringing closer the spinal cord MRI community, which includ
 It provides a forum, workshop announcements (including material), common MRI acquisition protocols and a list of software dedicated to spinal cord MRI analysis.
 
 **[Subscribe to the mailing list](https://goo.gl/forms/Q425YRKwZP5tsExF2)** if you
-wish to be informed about those events.
+wish to be informed about those events or if you would like to joint our [Slack Channel](https://spinalcordmri.slack.com).
