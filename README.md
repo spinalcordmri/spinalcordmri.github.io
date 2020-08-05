@@ -1,16 +1,27 @@
 # spinalcordmri.github.io
 
-**THIS README IS A WORK IN PROGRESS**
-
 ## How to set up Jekyll
 
 Nice tutorials here:
 https://www.taniarascia.com/make-a-static-website-with-jekyll/
 
-## Add domain
+## Configure Domain (NameCheap)
+
 - Purchase domain, e.g. from Namecheap
 - configure it to the GH page: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
 - Link domain to GitHub Pages:  https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
+
+The configuration looks like this:
+
+| Type         | Host                    | Value                   | TTL       |
+|--------------|-------------------------|-------------------------|-----------|
+| CNAME Record | www                     | spinalcordmri.github.io | Automatic |
+| A Record     | @                       | 185.199.110.153         | Automatic |
+| A Record     | @                       | 185.199.108.153         | Automatic |
+| A Record     | @                       | 185.199.109.153         | Automatic |
+| A Record     | @                       | 185.199.111.153         | Automatic |
+| A Record     | forum.spinalcordmri.org | 159.89.119.65           | Automatic |
+
 
 ## Set up Discourse Forum
 
