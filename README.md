@@ -118,10 +118,10 @@ Despite this bug, setting up `opensmtpd` is still leagues simpler and more relia
 
 ##### Setup DNS for Email
 
-1. Again, triple-check that `cat /etc/hostname` and `cat /etc/mailname` and `hostname` all return "forum.spinalcordmri.org"; **if not**, edit those two files manually, then **reboot** and test again.
+1. Again, triple-check that `cat /etc/hostname` and `cat /etc/mailname` and `hostname` all return "forum.spinalcordmri.org"; **if not**, edit those two files manually, then **reboot** and check again.
 1. In NameCheap, under the "forum.spinalcordmri.org" subdomain:
     1. Define the `MX` record: scroll to the email section, *set* it to "Custom MX" and write in `MX forum = forum.spinalcordmri.org, priority 0`.
-        * to test: `dig MX forum.spinalcordmri.org` should be "forum.spinalcordmri.org"
+        * to test: `dig MX forum.spinalcordmri.org` should return "forum.spinalcordmri.org"
     2. Set up [SPF](https://spfrecord.io/syntax/): again in namecheap, in the main records section, add `TXT forum. = "v=spf1 a mx ip4:159.89.119.65 ~all"`
         * to test: `dig TXT forum.spinalcordmri.org` should return the string above.
     3. DMARC: again in namecheap, add a record `TXT _dmarc.forum. = "v=DMARC1; p=none"`; but I'm not sure this achieves anything really.
@@ -186,7 +186,7 @@ Review until you have a good score and mails are getting accepted.
 
 #### Configure Discourse's email account
 
-We need. `opensmtpd` simply uses the OS's users by default, so make an OS user for outgoing emails. This user is *not*, OpenSMTPd by default allows authenticated users to choose (i.e. spoof) their identities:
+We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails. This username is *not* the same as what's on the email headers: `opensmtpd` allows authenticated users to spoof their identities, and we need actually want that because we want to send as `noreply@forum.spinalcordtoolbox.org`.
 
 1. Run a password generator and save the result temporarily. If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
 2. Create the user `forum@forum.spinalcordmri.org`;`useradd -s /usr/sbin/nologin forum && passwd forum`, inputting the saved password
