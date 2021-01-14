@@ -19,9 +19,10 @@ description: >- # this means to ignore newlines until "baseurl:"
   This website aims at bringing closer the spinal cord MRI community, which includes clinicians, physicists and computer scientists.
   It provides a forum, workshop announcements (including material), common MRI acquisition protocol and a list of software dedicated to spinal cord MRI analysis.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://www.spinalcordmri.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://www.spinalcordmri.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
+enforce_ssl: spinalcordmri.github.io
 
 # Build settings
 markdown: kramdown
