@@ -2,7 +2,11 @@
 
 This repo contains the source code and documentation for the https://spinalcordmri.org/ website. 
 
-The website is written using the Jekyll static site generator, and is deployed and hosted using GitHub Pages. The website uses a custom domain name purchased from NameCheap, then linked with GitHub Pages. (This way, instead of https://spinalcordmri.github.io, we get to use https://spinalcordmri.org.)
+## Main website (`spinalcordmri.org`)
+
+The main website is a simple landing page written using the Jekyll static site generator, and is deployed and hosted using GitHub Pages. The website uses a custom domain name purchased from NameCheap, then linked with GitHub Pages. (This way, instead of https://spinalcordmri.github.io, we get to use https://spinalcordmri.org.)
+
+## Setting up the GitHub Pages site
 
 Configuration settings can be found here:
 
@@ -14,10 +18,19 @@ Configuration is relatively simple, and was done using instructions from the fol
 - **GitHub Pages**: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
 - **NameCheap**: https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
 
-## Set up Discourse Forum
+## SCT Forum (`forum.spinalcordmri.org`)
 
-### Reference
-https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md
+The webforum ["forum.spinalcordmri.org"](https://forum.spinalcordmri.org/) is a subdomain of the spinalcordmri.org website. The forum was [originally envisioned](https://github.com/neuropoly/onboarding/issues/71#issuecomment-1008948573) as a general web forum and community for discussing MRI processing, acquisition, etc. That being said, the spinalcordmri.org forum is often colloquially referred to as the "SCT Forum", because the most active part of the forum is the ["SCT"](https://forum.spinalcordmri.org/c/sct/8) subsection. 
+
+The forum runs using the open-source forum software Discourse, and operates within a VM provided by DigitalOcean. This means that it is an entirely separate site from the main website, and so the setup, configuration, and administration of the forum is a bit more involved than the Jekyll part of the site.
+
+## Setting up the SCT Forum
+
+If you need to remake the forum's VM from scratch (e.g. to debug an issue without impacting the production server), then follow the instructions below. 
+
+> _**NB**: The following instructions are heavily based off of Discourse's official Cloud Installation instructions found [here](https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md). If anything is unclear, it may be helpful to refer to those instructions for further guidance._
+
+### DigitalOcean
 
 Create account & droplet in Digital Ocean. Droplet configure : 1GB RAM, 1 vCPU,25 GB HDD,	1 TB transfer, running Ubuntu 18.04-LTS.
 
