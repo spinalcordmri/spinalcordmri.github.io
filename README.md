@@ -30,22 +30,23 @@ If you need to remake the forum's VM from scratch (e.g. to debug an issue withou
 
 > _**NB**: The following instructions are heavily based off of Discourse's official Cloud Installation instructions found [here](https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md). If anything is unclear, it may be helpful to refer to those instructions for further guidance._
 
-### DigitalOcean
+### 1. DigitalOcean
 
 Create account & droplet in Digital Ocean. Droplet configure : 1GB RAM, 1 vCPU,25 GB HDD,	1 TB transfer, running Ubuntu 18.04-LTS.
 
-### Setup subdomain in namecheap
+### 2. Namecheap
+
   - To create a subdomain, please do the following:
     - Go to your Domain List and click Manage next to the domain
     - Select the Advanced DNS tab
     - Find the Host Records section and click on the Add New Record button
     - Select A Record for Type and enter the Host `forum.spinalcordmri.org`  you would like to point to an IP address `DigitalOcean_Server_IP_Address`
 
-### System Hostname
+### 3. System Hostname
 
 Make sure that the Droplet's `/etc/hostname` contains "forum.spinalcordmri.org".
 
-### Setup Discourse server
+### 4. Setup Discourse server
 
 Connect to the droplet server provided by Digital Ocean, then do:
   * Install Docker:
@@ -77,7 +78,7 @@ Other ways to side-step this:
 1. Run a second letsencrypt account for the same domain outside of the Discourse container?
 1. Run the mail server on a separate server e.g. `mail.spinalcordmri.org` with its own independent subdomain and certificates.
 
-### Setup Email
+### 5. Setup Email
 
 We run a small mail server on the same server as Discourse for it to send notifcations and password resets. Discourse recommends using a cloud service like MailGun or Amazon SES or SendGrid, but our usage is so small that the overhead (and risk) of outsourcing is high. Mail servers are something of an arcane art now, but never fear, these instructions will make it work.
 
@@ -91,7 +92,7 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org
 ```
 
 
-#### Install mail server
+#### 5.1 Install mail server
 
 Install [`opensmtpd`](https://www.opensmtpd.org/):
 
@@ -120,7 +121,7 @@ Afterwards, make sure that `/etc/mailname` contains "forum.spinalcordmri.org".
 
 Despite this bug, setting up `opensmtpd` is still leagues simpler and more reliable than `postfix` or `sendmail`.
 
-##### Setup DNS for Email
+#### 5.2 Setup DNS for Email
 
 1. Again, triple-check that `cat /etc/hostname` and `cat /etc/mailname` and `hostname` all return "forum.spinalcordmri.org"; **if not**, edit those two files manually, then **reboot** and check again.
 1. In NameCheap, under the "forum.spinalcordmri.org" subdomain:
@@ -133,7 +134,7 @@ Despite this bug, setting up `opensmtpd` is still leagues simpler and more relia
 3. Reverse DNS: log in to the Droplet's control panel at DigitalOcean (DO) and *set the name of the Droplet* to "forum.spinalcordmri.org"; this [causes the reverse DNS to be defined](https://www.digitalocean.com/community/questions/how-do-i-set-up-reverse-dns-for-my-ip).
     * to test: `dig +short -x $(dig +short forum.spinalcordmri.org)` should return "forum.spinalcordmri.org".
 
-##### Configure mail server
+#### 5.3 Configure mail server
 
 Put this into `/etc/smtpd.conf`:
 
@@ -165,7 +166,7 @@ journalctl -f -u opensmtpd
 (it helps to run this in a separate tab while doing the rest of the configuration and testing)
 
 
-##### Test mail delivery
+#### 5.4 Test mail delivery
 
 At this point the mail server *should* be a member of the internet email community. To test, use:
 
@@ -188,7 +189,7 @@ then click the "View My Results" button.
 
 Review until you have a good score and mails are getting accepted.
 
-#### Configure Discourse's email account
+#### 5.5 Configure Discourse's email account
 
 We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails. This username is *not* the same as what's on the email headers: `opensmtpd` allows authenticated users to spoof their identities, and we need actually want that because we want to send as `noreply@forum.spinalcordtoolbox.org`.
 
