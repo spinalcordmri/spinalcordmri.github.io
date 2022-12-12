@@ -1,22 +1,18 @@
-# spinalcordmri.github.io
+# https://spinalcordmri.org
 
-## Configure Domain (NameCheap)
+This repo contains the source code and documentation for the https://spinalcordmri.org/ website. 
 
-- Purchase domain, e.g. from Namecheap
-- configure it to the GH page: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
-- Link domain to GitHub Pages:  https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
+The website is written using the Jekyll static site generator, and is deployed and hosted using GitHub Pages. The website uses a custom domain name purchased from NameCheap, then linked with GitHub Pages. (This way, instead of https://spinalcordmri.github.io, we get to use https://spinalcordmri.org.)
 
-The configuration looks like this:
+Configuration settings can be found here:
 
-| Type         | Host                    | Value                   | TTL       |
-|--------------|-------------------------|-------------------------|-----------|
-| CNAME Record | www                     | spinalcordmri.github.io | Automatic |
-| A Record     | @                       | 185.199.110.153         | Automatic |
-| A Record     | @                       | 185.199.108.153         | Automatic |
-| A Record     | @                       | 185.199.109.153         | Automatic |
-| A Record     | @                       | 185.199.111.153         | Automatic |
-| A Record     | forum.spinalcordmri.org | 159.89.119.65           | Automatic |
+- **GitHub Pages**: https://github.com/spinalcordmri/spinalcordmri.github.io/settings/pages
+- **NameCheap**: https://ap.www.namecheap.com/Domains/DomainControlPanel/spinalcordmri.org/domain/
 
+Configuration is relatively simple, and was done using instructions from the following pages:
+
+- **GitHub Pages**: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
+- **NameCheap**: https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
 
 ## Set up Discourse Forum
 
