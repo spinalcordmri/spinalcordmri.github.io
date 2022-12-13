@@ -163,7 +163,7 @@ First, connect to the server using either SSH or the built-in DigitalOcean conso
 ```console
 root@forum:~# sudo nano /etc/hostname
 forum.dev.spinalcordmri.org
-root@forum:~# sudo nano /etc/hostname
+root@forum:~# sudo nano /etc/mailname
 forum.dev.spinalcordmri.org
 ```
 
