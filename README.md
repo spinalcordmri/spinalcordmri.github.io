@@ -125,9 +125,9 @@ These entries accomplish the following:
 You can double-check the current values by running the following commands:
 
 ```console
-user@device:~$ dig +short forum.spinalcordmri.org
+user@device:~$ dig +short forum.dev.spinalcordmri.org
 142.93.152.255
-user@device:~$ dig +short TXT forum.spinalcordmri.org
+user@device:~$ dig +short TXT forum.dev.spinalcordmri.org
 "v=spf1 a mx ip4:159.89.119.65 include:spf.efwd.registrar-servers.com ~all"
 user@device:~$ dig +short TXT _dmarc.forum.dev.spinalcordmri.org
 "v=DMARC1; p=none"
@@ -230,17 +230,17 @@ If `libcrypto.so.1.1` and `libssl.so.1.1` are linked to `/opt/openssl-1.1.1q/`, 
 Replace the existing contents of  `/etc/smtpd.conf` with the following:
 
 ```
-pki forum.spinalcordmri.org cert "/var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer"
-pki forum.spinalcordmri.org key "/var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key"
+pki forum.dev.spinalcordmri.org cert "/var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.cer"
+pki forum.dev.spinalcordmri.org key "/var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.key"
 
-listen on eth0 tls-require pki forum.spinalcordmri.org
-listen on eth0 tls-require pki forum.spinalcordmri.org auth port 587
+listen on eth0 tls-require pki forum.dev.spinalcordmri.org
+listen on eth0 tls-require pki forum.dev.spinalcordmri.org auth port 587
 table aliases file:/etc/aliases
 
 action "local_mail" maildir "~/.mail" alias <aliases>
 match for local action "local_mail"
 
-action "relay_mail" relay helo "forum.spinalcordmri.org"
+action "relay_mail" relay helo "forum.dev.spinalcordmri.org"
 match from auth for any action "relay_mail"
 ```
 
@@ -274,7 +274,7 @@ We need an SMTP account that Discourse can send mail via. `opensmtpd` simply use
 1. Run a password generator and save the result somewhere secure. (You will need the result for the remainder of this tutorial.)
     - If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
     - Note: Do NOT use symbols in your password. It can cause [weird bugs](https://github.com/neuropoly/computers/issues/403#issuecomment-1341500294) in Discourse's YAML config.
-2. Create the user `forum@forum.spinalcordmri.org` using the following commands:
+2. Create the user `forum@forum.dev.spinalcordmri.org` using the following commands:
     - `useradd -s /usr/sbin/nologin forum` : Creates the user account.
     - `passwd forum`: Sets the password for the account. Paste the password you generated earlier.
 
@@ -300,9 +300,9 @@ cd /var/discourse
 - Install Discourse
 ~~~
 ./discourse-setup
-Hostname      : forum.spinalcordmri.org
+Hostname      : forum.dev.spinalcordmri.org
 Email         : [initial administrator's email address]
-SMTP address  : forum.spinalcordmri.org
+SMTP address  : forum.dev.spinalcordmri.org
 SMTP port     : 587
 SMTP username : forum
 SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
@@ -314,9 +314,9 @@ Let's Encrypt : [initial administrator's email address]
 Before continuing, make sure that Discourse has generated its SSL certs. (They will be [generated automatically](https://meta.discourse.org/t/set-up-https-support-with-lets-encrypt/40709), as long as you provide an email address for Let's Encrypt.) They exist in `/var/discourse/shared/standalone/ssl/`:
 
 ```
-root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.{cer,key}
--rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer
--rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key
+root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.{cer,key}
+-rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.cer
+-rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.key
 ```
 
 These files must be present for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`. 
@@ -347,7 +347,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
     ```bash
     # You will need to enter the password that you set during the previous "User Setup" section!!
-    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
+    swaks --to me@example.com --from noreply@forum.dev.spinalcordmri.org --server forum.dev.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
     ```
 
 3. Discourse-specific test
@@ -384,8 +384,8 @@ Go to https://console.developers.google.com, click on Credentials and create a n
 Select Credentials in the left menu, Create credentials and OAuth client ID type for the credentials.
 - Application type `Web application`
 - Name `Forum spinalcordmri.org`
-- Authorized JavaScript origins `http://forum.spinalcordmri.org`
-- Authorized redirect URIs `http://forum.spinalcordmri.org/auth/google_oauth2/callback`
+- Authorized JavaScript origins `http://forum.dev.spinalcordmri.org`
+- Authorized redirect URIs `http://forum.dev.spinalcordmri.org/auth/google_oauth2/callback`
 
 Configure your OAuth Consent Screen
   - Product name shown to users `Forum spinalcordmri.org`
@@ -394,7 +394,7 @@ Configure your OAuth Consent Screen
 
 Click Library in the left menu and you’ll see a huge list of Google API’s. Find Google+ API and enable them.
 
-The API will create `google_client_id` and `google_client_secret` which you can add under http://forum.spinalcordmri.org/admin/site_settings/category/login, after checking `enable google oauth2 logins`
+The API will create `google_client_id` and `google_client_secret` which you can add under http://forum.dev.spinalcordmri.org/admin/site_settings/category/login, after checking `enable google oauth2 logins`
 
 #### 6.2  Configure GitHub login for Discourse ([reference](https://meta.discourse.org/t/configuring-github-login-for-discourse/13745))
 
@@ -405,7 +405,7 @@ Under github.com/spinalcordmri, click Settings (the gear icon), then look for OA
   ~~~
   - Homepage URL
   ~~~
-  http://forum.spinalcordmri.org/
+  http://forum.dev.spinalcordmri.org/
   ~~~
   - Application description
   ~~~
@@ -413,8 +413,8 @@ Under github.com/spinalcordmri, click Settings (the gear icon), then look for OA
   ~~~
   - Authorization callback URL
   ~~~
-  http://forum.spinalcordmri.org//auth/github/callback
+  http://forum.dev.spinalcordmri.org//auth/github/callback
   ~~~
-The app will create `github_client_id` and `github_client_secret`which you can add under http://forum.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
+The app will create `github_client_id` and `github_client_secret`which you can add under http://forum.dev.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
 
 </details>
