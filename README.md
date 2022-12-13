@@ -167,7 +167,26 @@ root@forum:~# sudo nano /etc/mailname
 forum.dev.spinalcordmri.org
 ```
 
-Make sure that both of these files contain only the domain name you chose. Additionally, ensure that the following command also returns the same domain name:
+Additionally, edit the `/etc/hosts` file to ensure it contains the line `127.0.0.1 forum.dev.neuropoly.org localhost`:
+
+```console
+root@forum:~# sudo nano /etc/hosts
+# Your system has configured 'manage_etc_hosts' as True.
+# As a result, if you wish for changes to this file to persist
+# then you will need to either
+# a.) make changes to the master file in /etc/cloud/templates/hosts.debian.tmpl
+# b.) change or remove the value of 'manage_etc_hosts' in
+#     /etc/cloud/cloud.cfg or cloud-config from user-data
+#
+127.0.0.1 forum.dev.spinalcordmri.org localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1 localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+```
+
+Finally, ensure that the following command also returns the same domain name as above:
 
 ```console
 root@forum:~# hostname
