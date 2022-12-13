@@ -263,7 +263,7 @@ SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
 Let's Encrypt : [initial administrator's email address]
 ~~~
 
-Before continuing, make sure that Discourse has generated its SSL certs. They exist in `/var/discourse/shared/standalone/ssl/`:
+Before continuing, make sure that Discourse has generated its SSL certs. (They will be [generated automatically](https://meta.discourse.org/t/set-up-https-support-with-lets-encrypt/40709), as long as you provide an email address for Let's Encrypt.) They exist in `/var/discourse/shared/standalone/ssl/`:
 
 ```
 root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.{cer,key}
@@ -271,7 +271,7 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org
 -rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key
 ```
 
-These files are necessary for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`.
+These files must be present for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`. 
 
 #### 5.2 Test mail delivery
 
