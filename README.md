@@ -297,6 +297,8 @@ SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
 Let's Encrypt : [initial administrator's email address]
 ~~~
 
+#### 5.2 Check SSL certs
+
 Before continuing, make sure that Discourse has generated its SSL certs. (They will be [generated automatically](https://meta.discourse.org/t/set-up-https-support-with-lets-encrypt/40709), as long as you provide an email address for Let's Encrypt.) They exist in `/var/discourse/shared/standalone/ssl/`:
 
 ```
@@ -307,7 +309,7 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org
 
 These files must be present for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`. 
 
-#### 5.2 Test mail delivery
+#### 5.3 Test mail delivery
 
 To create the first admin account on the newly-installed Discourse forum, email delivery must be working, because Discourse will need to send out a confirmation email.
 
