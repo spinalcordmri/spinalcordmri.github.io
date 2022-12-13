@@ -312,13 +312,14 @@ cd /var/discourse
 - Install Discourse
 ~~~
 ./discourse-setup
-Hostname      : forum.dev.spinalcordmri.org
-Email         : [initial administrator's email address]
-SMTP address  : forum.dev.spinalcordmri.org
-SMTP port     : 587
-SMTP username : forum
-SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
-Let's Encrypt : [initial administrator's email address]
+Hostname        : forum.dev.spinalcordmri.org
+Email           : [initial administrator's email address]
+SMTP address    : forum.dev.spinalcordmri.org
+SMTP port       : 587
+SMTP username   : forum
+SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
+Let's Encrypt   : [initial administrator's email address]
+Maxmind License : [Enter}
 ~~~
 
 #### 5.2 Check SSL certs
