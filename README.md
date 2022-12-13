@@ -199,16 +199,19 @@ forum.dev.spinalcordmri.org
 
 We run a small mail server on the same server as Discourse for it to send notifcations and password resets. Discourse recommends using a cloud service like MailGun or Amazon SES or SendGrid, but our usage is so small that the overhead (and risk) of outsourcing is high. Mail servers are something of an arcane art now, but never fear, these instructions will make it work.
 
-
 #### 4.1 Install mail server
 
-First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use 
+First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.10 installs by default.
 
-```
-sudo apt-get install opensmtpd
-```
+To get around this, we must build `openssl` and `opensmtpd` from their source code, to ensure that `opensmptd` uses OpenSSL v1.1.1, rather than v3.0.
 
-The installer will prompt you to name the system; make sure to tell it "forum.spinalcordmri.org".
+Thankfully, one of SCT's developers has created a script that will automate this procedure.
+
+1. Run `cd ~`, then create a new file called `patch_opensmtpd_openssl.sh` and paste in the contents of [this comment](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171#issuecomment-1218503481):
+2. Make the script executable using `chmod +x patch_opensmtpd_openssl.sh`.
+3. Run the script using `./patch_opensmtpd_openssl.sh`
+
+> _**NB:**: The `opensmtpd` installer will prompt you to name the system; make sure to tell it "forum.dev.spinalcordmri.org"._
 
 #### 4.2 Configure mail server
 
