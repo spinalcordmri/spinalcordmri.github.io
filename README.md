@@ -30,6 +30,8 @@ If you need to remake the forum's VM from scratch (e.g. to debug an issue withou
 
 ----
 
+### Table of contents
+
 0. [Domain name](#0-domain-name)
 1. [Digital Ocean](#1-digitalocean)
 2. [Namecheap](#2-namecheap)
