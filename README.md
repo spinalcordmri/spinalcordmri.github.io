@@ -28,11 +28,15 @@ If you need to remake the forum's VM from scratch (e.g. to debug an issue withou
 
 > _**NB**: The following instructions are heavily based off of Discourse's official Cloud Installation instructions found [here](https://github.com/discourse/discourse/blob/master/docs/INSTALL-cloud.md). If anything is unclear, it may be helpful to refer to those instructions for further guidance._
 
-### 0. Choosing a domain name
+----
+
+### 0. Domain name
 
 Before you begin, first choose an [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (i.e. a domain name). This can be `forum.spinalcordmri.org` if you're starting completely from scratch (i.e. there is no currently-running forum instance) or something like `forum.dev.spinalcordmri.org` (if you're setting up a separate test server).
 
 > _**NB**: For the rest of these instructions, we will use the `forum.dev.spinalcordmri.org` hostname, but make sure you substitute in whichever domain name you decided on._
+
+----
 
 ### 1. DigitalOcean
 
@@ -87,6 +91,8 @@ Or, you can navigate to your droplet's main page, then click the "Console" butto
 ![image](https://user-images.githubusercontent.com/16181459/207170763-68db34b0-4f1d-4e6d-a7b6-72340994c7ae.png)
 
 From here, you can make changes to the server itself. 
+
+----
 
 ### 2. Namecheap
 
@@ -146,6 +152,8 @@ user@device:~$ dig +short MX forum.dev.spinalcordmri.org
 0 forum.dev.spinalcordmri.org.
 ```
 
+----
+
 ### 3. Server Setup: Hostnames
 
 Now that NameCheap is configured, we can set up the server itself, starting with its hostname.
@@ -165,6 +173,8 @@ Make sure that both of these files contain only the domain name you chose. Addit
 root@forum:~# hostname
 forum.dev.spinalcordmri.org
 ```
+
+----
 
 ### 4. Server Setup: Discourse
 
@@ -197,6 +207,9 @@ Other ways to side-step this:
 1. Run letsencrypt ourselves, outside of the Discourse container; make sure that works and then say "No" to the Let's Encrypt prompt.
 1. Run a second letsencrypt account for the same domain outside of the Discourse container?
 1. Run the mail server on a separate server e.g. `mail.spinalcordmri.org` with its own independent subdomain and certificates.
+
+
+----
 
 ### 5. Setup Email
 
