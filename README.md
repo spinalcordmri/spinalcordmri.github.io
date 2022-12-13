@@ -318,6 +318,7 @@ SMTP address    : forum.dev.spinalcordmri.org
 SMTP port       : 587
 SMTP username   : forum
 SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
+Notification    : noreply@forum.dev.spinalcordmri.org
 Let's Encrypt   : [initial administrator's email address]
 Maxmind License : [Enter}
 ~~~
