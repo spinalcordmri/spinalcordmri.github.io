@@ -39,7 +39,7 @@ Before you begin, first choose an [FQDN](https://en.wikipedia.org/wiki/Fully_qua
 First, make sure you have an account with DigitalOcean. Next, contact someone on the admin team; they will add you to the [NeuroPoly DigitalOcean team](https://cloud.digitalocean.com/account/team?i=fff1bd). This will grant you access to the [Spinal Cord MRI project](https://cloud.digitalocean.com/projects/12ec554b-d344-44bc-9973-c956f11d032b/resources?i=fff1bd). 
 
 
-##### 1.1 Creating a new droplet
+#### 1.1 Creating a new droplet
 
 From the Spinal Cord MRI project page, you can create a new "droplet", which is DigitalOcean's name for cloud servers.
 
@@ -70,7 +70,7 @@ forum.dev.spinalcordmri.org.
 
 Once you've confirmed that it returns the domain name you chose, you're all set to connect to the droplet.
 
-##### 1.2 Connecting to the droplet for the first time
+#### 1.2 Connecting to the droplet for the first time
 
 You can connect to the server either through SSH (assuming your local device contains the SSH key you added earlier):
 
@@ -96,7 +96,7 @@ First, make sure you have an account with Namecheap. Again, you will need to con
 
 Next, on the dashboard, navigate to the [Advanced DNS tab](https://ap.www.namecheap.com/Domains/DomainControlPanel/spinalcordmri.org/advancedns). Then, modify the following sections:
 
-##### 2.1 Host Records
+#### 2.1 Host Records
 
 First you will want to make note the subdomain label of your domain name. For `forum.dev.spinalcordmri.org`, you will use `forum.dev` to identify your subdomain.
 
@@ -129,7 +129,7 @@ user@device:~$ dig +short TXT _dmarc.forum.dev.spinalcordmri.org
 
 > _**NB**: If you make a mistake and want to update the values of these records, please note that it may take [up to a few hours](https://ns1.com/resources/dns-propagation) for changes to these records to propagate. So, if you're running `dig` and see no change, that's why!_
 
-##### 2.2 Mail Settings (i.e. MX Records)
+#### 2.2 Mail Settings (i.e. MX Records)
 
 Next, scroll down to the "Mail Settings" section and find the table containing MX records. Then, add the following entry:
 
