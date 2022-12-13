@@ -176,42 +176,7 @@ forum.dev.spinalcordmri.org
 
 ----
 
-### 4. Server Setup: Discourse
-
-Connect to the droplet server provided by Digital Ocean, then do:
-  * Install Docker:
-~~~
-wget -qO- https://get.docker.com/ | sh
-~~~
-- Clone Discourse deploy
-~~~
-mkdir /var/discourse
-git clone https://github.com/discourse/discourse_docker.git /var/discourse
-cd /var/discourse
-~~~
-- Install Discourse
-~~~
-./discourse-setup
-Hostname      : forum.spinalcordmri.org
-Email         : [initial administrator's email address]
-SMTP address  : [press Enter]
-SMTP port     : [press Enter]
-SMTP username : [press Enter]
-SMTP password : [press Enter]
-Let's Encrypt : [press Enter]
-~~~
-
-Note that this skips SMTP (email). We run a mail server on the same machine as Discourse, so there is a circular dependency that we need to side-step: the mail server relies on Discourse to generate a SSL certificate, but Discourse needs a mail server to operate.
-
-Other ways to side-step this:
-1. Run letsencrypt ourselves, outside of the Discourse container; make sure that works and then say "No" to the Let's Encrypt prompt.
-1. Run a second letsencrypt account for the same domain outside of the Discourse container?
-1. Run the mail server on a separate server e.g. `mail.spinalcordmri.org` with its own independent subdomain and certificates.
-
-
-----
-
-### 5. Setup Email
+### 4. Server Setup: Email
 
 We run a small mail server on the same server as Discourse for it to send notifcations and password resets. Discourse recommends using a cloud service like MailGun or Amazon SES or SendGrid, but our usage is so small that the overhead (and risk) of outsourcing is high. Mail servers are something of an arcane art now, but never fear, these instructions will make it work.
 
@@ -225,7 +190,7 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org
 ```
 
 
-#### 5.1 Install mail server
+#### 4.1 Install mail server
 
 Install [`opensmtpd`](https://www.opensmtpd.org/):
 
@@ -254,7 +219,7 @@ Afterwards, make sure that `/etc/mailname` contains "forum.spinalcordmri.org".
 
 Despite this bug, setting up `opensmtpd` is still leagues simpler and more reliable than `postfix` or `sendmail`.
 
-#### 5.2 Configure mail server
+#### 4.2 Configure mail server
 
 Put this into `/etc/smtpd.conf`:
 
@@ -286,7 +251,7 @@ journalctl -f -u opensmtpd
 (it helps to run this in a separate tab while doing the rest of the configuration and testing)
 
 
-#### 5.3 Test mail delivery
+#### 4.3 Test mail delivery
 
 At this point the mail server *should* be a member of the internet email community. To test, use:
 
@@ -309,7 +274,7 @@ then click the "View My Results" button.
 
 Review until you have a good score and mails are getting accepted.
 
-#### 5.4 Configure Discourse's email account
+#### 4.4 Configure Discourse's email account
 
 We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails. This username is *not* the same as what's on the email headers: `opensmtpd` allows authenticated users to spoof their identities, and we need actually want that because we want to send as `noreply@forum.spinalcordtoolbox.org`.
 
@@ -343,6 +308,42 @@ We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's
       Let's Encrypt : [press Enter]
       ```
 5. Test: make a post on the forum, and have someone else reply to it. Watch the mail log (`journalctl -u -f opensmtpd`!) and check if you receive the notification in your inbox.
+
+----
+
+### 5. Server Setup: Discourse
+
+Connect to the droplet server provided by Digital Ocean, then do:
+  * Install Docker:
+~~~
+wget -qO- https://get.docker.com/ | sh
+~~~
+- Clone Discourse deploy
+~~~
+mkdir /var/discourse
+git clone https://github.com/discourse/discourse_docker.git /var/discourse
+cd /var/discourse
+~~~
+- Install Discourse
+~~~
+./discourse-setup
+Hostname      : forum.spinalcordmri.org
+Email         : [initial administrator's email address]
+SMTP address  : [press Enter]
+SMTP port     : [press Enter]
+SMTP username : [press Enter]
+SMTP password : [press Enter]
+Let's Encrypt : [press Enter]
+~~~
+
+Note that this skips SMTP (email). We run a mail server on the same machine as Discourse, so there is a circular dependency that we need to side-step: the mail server relies on Discourse to generate a SSL certificate, but Discourse needs a mail server to operate.
+
+Other ways to side-step this:
+1. Run letsencrypt ourselves, outside of the Discourse container; make sure that works and then say "No" to the Let's Encrypt prompt.
+1. Run a second letsencrypt account for the same domain outside of the Discourse container?
+1. Run the mail server on a separate server e.g. `mail.spinalcordmri.org` with its own independent subdomain and certificates.
+
+----
 
 ```
 
