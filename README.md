@@ -179,7 +179,7 @@ root@forum:~# sudo nano /etc/mailname
 forum.dev.spinalcordmri.org
 ```
 
-Additionally, edit the `/etc/hosts` file to ensure it contains the line `127.0.0.1 forum.dev.neuropoly.org localhost`:
+Additionally, edit the `/etc/hosts` file to ensure that it looks like the following:
 
 ```console
 root@forum:~# sudo nano /etc/hosts
@@ -190,7 +190,8 @@ root@forum:~# sudo nano /etc/hosts
 # b.) change or remove the value of 'manage_etc_hosts' in
 #     /etc/cloud/cloud.cfg or cloud-config from user-data
 #
-127.0.0.1 forum.dev.spinalcordmri.org localhost
+127.0.1.1 forum.dev.spinalcordmri.org
+127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
 ::1 localhost ip6-localhost ip6-loopback
