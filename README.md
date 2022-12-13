@@ -193,19 +193,21 @@ The installer will prompt you to name the system; make sure to tell it "forum.sp
 
 #### 4.2 Configure mail server
 
-Put this into `/etc/smtpd.conf`:
+Replace the existing contents of  `/etc/smtpd.conf` with the following:
 
 ```
-pki forum.spinalcordmri.org certificate "/var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer"
+pki forum.spinalcordmri.org cert "/var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer"
 pki forum.spinalcordmri.org key "/var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key"
 
-listen on eth0 tls-require pki forum.spinalcordmri.org auth-optional
+listen on eth0 tls-require pki forum.spinalcordmri.org
 listen on eth0 tls-require pki forum.spinalcordmri.org auth port 587
 table aliases file:/etc/aliases
-# incoming mail disabled until if/when we want https://meta.discourse.org/t/set-up-reply-via-email-support/14003
-#accept from any for domain "forum.spinalcordmri.org" alias <aliases> deliver to maildir "~/.mail" 
-accept for local alias <aliases> deliver to maildir "~/.mail" 
-accept for any relay hostname "forum.spinalcordmri.org"
+
+action "local_mail" maildir "~/.mail" alias <aliases>
+match for local action "local_mail"
+
+action "relay_mail" relay helo "forum.spinalcordmri.org"
+match from auth for any action "relay_mail"
 ```
 
 Enable the server with
