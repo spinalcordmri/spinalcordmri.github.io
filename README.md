@@ -213,6 +213,18 @@ Thankfully, one of SCT's developers has created a script that will automate this
 
 > _**NB:**: The `opensmtpd` installer will prompt you to name the system; make sure to tell it "forum.dev.spinalcordmri.org"._
 
+You can verify that `opensmptd` was built and installed correctly by running:
+
+```console
+root@forum:~# ldd `which smtpd`
+    [...]
+	libcrypto.so.1.1 => /opt/openssl-1.1.1q/lib/libcrypto.so.1.1 (0x00007f5ed6eb2000)
+	libssl.so.1.1 => /opt/openssl-1.1.1q/lib/libssl.so.1.1 (0x00007f5ed6e19000)
+    [...]
+```
+
+If `libcrypto.so.1.1` and `libssl.so.1.1` are linked to `/opt/openssl-1.1.1q/`, then you've installed `opensmtpd` correctly.
+
 #### 4.2 Configure mail server
 
 Replace the existing contents of  `/etc/smtpd.conf` with the following:
