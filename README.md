@@ -1,8 +1,6 @@
-# https://spinalcordmri.org
+# `spinalcordmri.org`
 
-This repo contains the source code and documentation for the https://spinalcordmri.org/ website. 
-
-## Main website (`spinalcordmri.org`)
+This repo contains the source code and documentation for the https://spinalcordmri.org/ website.
 
 The main website is a simple landing page written using the Jekyll static site generator, and is deployed and hosted using GitHub Pages. The website uses a custom domain name purchased from NameCheap, then linked with GitHub Pages. (This way, instead of https://spinalcordmri.github.io, we get to use https://spinalcordmri.org.)
 
@@ -18,7 +16,7 @@ Configuration is relatively simple, and was done using instructions from the fol
 - **GitHub Pages**: https://help.github.com/articles/quick-start-setting-up-a-custom-domain/
 - **NameCheap**: https://www.namecheap.com/support/knowledgebase/article.aspx/9645/2208/how-do-i-link-my-domain-to-github-pages
 
-## SCT Forum (`forum.spinalcordmri.org`)
+# `forum.spinalcordmri.org`
 
 The webforum ["forum.spinalcordmri.org"](https://forum.spinalcordmri.org/) is a subdomain of the spinalcordmri.org website. The forum was [originally envisioned](https://github.com/neuropoly/onboarding/issues/71#issuecomment-1008948573) as a general web forum and community for discussing MRI processing, acquisition, etc. That being said, the spinalcordmri.org forum is often colloquially referred to as the "SCT Forum", because the most active part of the forum is the ["SCT"](https://forum.spinalcordmri.org/c/sct/8) subsection. 
 
