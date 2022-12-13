@@ -250,64 +250,47 @@ journalctl -f -u opensmtpd
 
 (it helps to run this in a separate tab while doing the rest of the configuration and testing)
 
+#### 4.3 Create a new mail-specific user account
 
-#### 4.3 Test mail delivery
+We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails.
 
-At this point the mail server *should* be a member of the internet email community. To test, use:
+1. Run a password generator and save the result somewhere secure. (You will need the result for the remainder of this tutorial.)
+    - If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
+2. Create the user `forum@forum.spinalcordmri.org` using the following commands:
+    - `useradd -s /usr/sbin/nologin forum` : Creates the user account.
+    - `passwd forum`: Sets the password for the account. Paste the password you generated earlier.
 
-```
-echo "Test Message" | mail -s "This is a message" you@example.org
-```
+> _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@forum.dev.spinalcordtoolbox.org`.
 
-If you can, test with a few major email servers that we care about: "someone@polymtl.ca", "someoneelse@gmail.com", "antoinethethird@hotmail.com", "thefourthliest@yahoo.com". Generally, if the above has been done right, your message should get past the spam filters, and if it was done wrong it either won't send or will be caught by the spam filters.
+#### 4.4 Test mail delivery
 
-https://www.mail-tester.com/ is very helpful for finding issues missed above, especially around spamminess. Email is very very complicated and this helps a lot.
-Go to 
-https://www.mail-tester.com/ and copy the email address it gives you, then run the same test but with it as a target:
+We can now test that everything has been set up correctly. 
 
+To test, rather than sending to specific personal addresses, we use https://www.mail-tester.com/. This page is very helpful for finding issues missed during setup, especially around spamminess. Email is very very complicated and this helps a lot.
 
-```
-echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
-```
+Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address in one of two ways:
 
-then click the "View My Results" button.
+1. Simple test (`mail`)
 
-Review until you have a good score and mails are getting accepted.
+    ```bash
+    echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
+    ```
 
-#### 4.4 Configure Discourse's email account
+2. Complex test (`swaks`)
 
-We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails. This username is *not* the same as what's on the email headers: `opensmtpd` allows authenticated users to spoof their identities, and we need actually want that because we want to send as `noreply@forum.spinalcordtoolbox.org`.
+    You will first need to install the "Swiss Army Knife for SMTP" *[`swaks`](https://www.jetmore.org/john/code/swaks/)) using `sudo apt-get install swaks`. Then, you can run:
 
-1. Run a password generator and save the result temporarily. If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
-2. Create the user `forum@forum.spinalcordmri.org`;`useradd -s /usr/sbin/nologin forum && passwd forum`, inputting the saved password
-3. Test:
-    - install [`swaks`](https://www.jetmore.org/john/code/swaks/): `sudo apt-get install swaks`
-    - 
-      ```
-      swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 25 --auth-user forum --tls-verify --tls
-      Password: xxxxxxxxxxxxxxxxxxxxxxx
-      === Trying forum.spinalcordmri.org:25...
-      === Connected to forum.spinalcordmri.org.
-      [...]
-      <~  250 2.0.0: 8ccb62c7 Message accepted for delivery
-      ~> QUIT
-      <~  221 2.0.0: Bye
-      ```
-    - try varying `--to` and `--from` to see how various servers react
-    - if you do not see "accepted" stop and debug until it works
-4. Give Discourse the new SMTP credentials; this [is done](https://github.com/discourse/discourse/blob/dc49581344a9f0400a4b77e74331e269e995f648/docs/INSTALL-cloud.md#edit-discourse-configuration) by re-running the installer. The original values will be saved and prompted; add in the new credentials:
-    -
-      ```
-      (cd /var/discourse; ./discourse-set
-      Hostname      : forum.spinalcordmri.org
-      Email         : [press enter]
-      SMTP address  : forum.spinalcordmri.org
-      SMTP port     : 587
-      SMTP username : forum
-      SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
-      Let's Encrypt : [press Enter]
-      ```
-5. Test: make a post on the forum, and have someone else reply to it. Watch the mail log (`journalctl -u -f opensmtpd`!) and check if you receive the notification in your inbox.
+    ```bash
+    # You will need to enter the password that you set during the previous "User Setup" section!!
+    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 25 --auth-user forum --tls-verify --tls
+    ```
+
+Your goal here is to ensure that:
+
+- The email message gets delivered.
+- Your mail-tester score is relatively high (ideally at least 9/10, but at the very minimum, 7/10).
+
+Once you send your test message, you can click "View my results" on the mail-tester webpage. It will give you feedback on things that need to be changed. So, try to iteratively address the feedback, send a new test message, and refresh the page until you get a high score.
 
 ----
 
@@ -329,19 +312,14 @@ cd /var/discourse
 ./discourse-setup
 Hostname      : forum.spinalcordmri.org
 Email         : [initial administrator's email address]
-SMTP address  : [press Enter]
-SMTP port     : [press Enter]
-SMTP username : [press Enter]
-SMTP password : [press Enter]
+SMTP address  : forum.spinalcordmri.org
+SMTP port     : 587
+SMTP username : forum
+SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
 Let's Encrypt : [press Enter]
 ~~~
-
-Note that this skips SMTP (email). We run a mail server on the same machine as Discourse, so there is a circular dependency that we need to side-step: the mail server relies on Discourse to generate a SSL certificate, but Discourse needs a mail server to operate.
-
-Other ways to side-step this:
-1. Run letsencrypt ourselves, outside of the Discourse container; make sure that works and then say "No" to the Let's Encrypt prompt.
-1. Run a second letsencrypt account for the same domain outside of the Discourse container?
-1. Run the mail server on a separate server e.g. `mail.spinalcordmri.org` with its own independent subdomain and certificates.
+   
+5. Test: make a post on the forum, and have someone else reply to it. Watch the mail log (`journalctl -u -f opensmtpd`!) and check if you receive the notification in your inbox.
 
 ----
 
