@@ -251,7 +251,7 @@ We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's
     - `useradd -s /usr/sbin/nologin forum` : Creates the user account.
     - `passwd forum`: Sets the password for the account. Paste the password you generated earlier.
 
-> _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@forum.dev.spinalcordtoolbox.org`.
+> _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@forum.dev.spinalcordtoolbox.org`._
 
 ----
 
