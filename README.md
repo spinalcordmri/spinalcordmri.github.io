@@ -30,13 +30,13 @@ If you need to remake the forum's VM from scratch (e.g. to debug an issue withou
 
 ----
 
-- 0. [Domain name](#0-domain-name)
-- 1. [Digital Ocean](#1-digitalocean)
-- 2. [Namecheap](#2-namecheap)
-- 3. [Hostnames](#3-server-setup-hostnames)
-- 4. [Email](#4-server-setup-email)
-- 5. [Discourse](#5-server-setup-discourse)
-- 6. [Google/GitHub logins](#6-googlegithub-logins-for-discourse)
+0. [Domain name](#0-domain-name)
+1. [Digital Ocean](#1-digitalocean)
+2. [Namecheap](#2-namecheap)
+3. [Hostnames](#3-server-setup-hostnames)
+4. [Email](#4-server-setup-email)
+5. [Discourse](#5-server-setup-discourse)
+6. [Google/GitHub logins](#6-googlegithub-logins-for-discourse)
 
 ----
 
