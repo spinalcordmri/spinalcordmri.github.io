@@ -118,9 +118,9 @@ TXT Record | _dmarc.forum.dev | v=DMARC1; p=none | Automatic
 
 These entries accomplish the following:
 
-1.[A Record](https://support.dnsimple.com/articles/a-record/): Maps the `forum.dev.spinalcordmri.org` subdomain to the DigitalOcean droplet's IP address.
-2.[SPF Record](https://spfrecord.io/syntax/): This will help later on when setting up the forum's mail server. It authorizes the DigitalOcean droplet as a valid sender of mail, which helps prevent the forum's notification emails from being caught as spam.
-3.[DMARC Record](https://mxtoolbox.com/dmarc/details/what-is-a-dmarc-record): This will help later on when setting up the forum's mail server. 
+1. [A Record](https://support.dnsimple.com/articles/a-record/): Maps the `forum.dev.spinalcordmri.org` subdomain to the DigitalOcean droplet's IP address.
+2. [SPF Record](https://spfrecord.io/syntax/): This will help later on when setting up the forum's mail server. It authorizes the DigitalOcean droplet as a valid sender of mail, which helps prevent the forum's notification emails from being caught as spam.
+3. [DMARC Record](https://mxtoolbox.com/dmarc/details/what-is-a-dmarc-record): This will help later on when setting up the forum's mail server. 
 
 You can double-check the current values by running the following commands:
 
