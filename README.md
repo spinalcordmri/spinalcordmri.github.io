@@ -63,7 +63,7 @@ From the Spinal Cord MRI project page, you can create a new "droplet", which is 
 
 Next, create a droplet using the following settings:
 
-  - **Choose an image**: Distribution -> Ubuntu -> Version: 22.10 x64
+  - **Choose an image**: Distribution -> Ubuntu -> Version: 22.04 (LTS) x64
   - **Choose a plan**: 
     - Shared CPU: Basic
     - CPU Options: Regular
@@ -92,7 +92,7 @@ You can connect to the server either through SSH (assuming your local device con
 
 ```console
 user@device:~$ ssh root@forum.dev.spinalcordmri.org
-Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-26-generic x86_64)
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-50-generic x86_64)
 
 Last login: Fri Dec  9 23:06:11 2022 from 162.243.188.66
 root@forum:~# 
@@ -213,7 +213,7 @@ We run a small mail server on the same server as Discourse for it to send notifc
 
 #### 4.1 Install mail server
 
-First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.10 installs by default.
+First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.04 installs by default.
 
 To get around this, we must build `openssl` and `opensmtpd` from their source code, to ensure that `opensmptd` uses OpenSSL v1.1.1, rather than v3.0.
 
