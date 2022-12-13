@@ -183,7 +183,7 @@ We run a small mail server on the same server as Discourse for it to send notifc
 
 #### 4.1 Install mail server
 
-Install [`opensmtpd`](https://www.opensmtpd.org/):
+First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use 
 
 ```
 sudo apt-get install opensmtpd
@@ -287,11 +287,13 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
 1. Simple test (`mail`)
 
+    You will first need to install [Mailutils](https://mailutils.org/) using `sudo apt-get install mailutils`. Then, you can run:
+
     ```bash
     echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
     ```
 
-2. Complex test (`swaks`)
+3. Complex test (`swaks`)
 
     You will first need to install the "Swiss Army Knife for SMTP" ([`swaks`](https://www.jetmore.org/john/code/swaks/)) using `sudo apt-get install swaks`. Then, you can run:
 
@@ -300,7 +302,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
     swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
     ```
 
-3. Discourse-specific test
+4. Discourse-specific test
 
     First, `cd` into `/var/discourse`. Then, run the following command:
 
