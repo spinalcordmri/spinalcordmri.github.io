@@ -198,7 +198,7 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
-Finally, ensure that the following command also returns the same domain name as above:
+Reboot the server by running `reboot`, then reconnect and ensure that the following command also returns the same domain name as above:
 
 ```console
 root@forum:~# hostname
