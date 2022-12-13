@@ -191,24 +191,6 @@ sudo apt-get install opensmtpd
 
 The installer will prompt you to name the system; make sure to tell it "forum.spinalcordmri.org".
 
-**There is a bug** in the OpenSMTPd packaged for Ubuntu 18.04: https://bugs.launchpad.net/ubuntu/+source/opensmtpd/+bug/1840586. To work around it, apply this patch:
-
-```
---- /lib/systemd/system/opensmtpd.service.old	2020-11-05 01:20:51.164473166 +0000
-+++ /lib/systemd/system/opensmtpd.service	2020-11-03 21:22:34.309085523 +0000
-@@ -6,7 +6,8 @@
- [Service]
- Type=forking
- ExecStart=/usr/sbin/smtpd
--ExecStop=/usr/sbin/smtpctl stop # backported fix for https://bugs.launchpad.net/ubuntu/+source/opensmtpd/+bug/1840586
-+ExecStop=/bin/kill -15 $MAINPID
- 
- [Install]
- WantedBy=multi-user.target
-```
-
-Despite this bug, setting up `opensmtpd` is still leagues simpler and more reliable than `postfix` or `sendmail`.
-
 #### 4.2 Configure mail server
 
 Put this into `/etc/smtpd.conf`:
