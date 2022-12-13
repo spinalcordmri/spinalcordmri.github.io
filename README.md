@@ -385,6 +385,16 @@ With each of these tests, your goal here is to ensure that:
 
 Once you send your test message, you can click "View my results" on the mail-tester webpage. It will give you feedback on things that need to be changed. So, try to iteratively address the feedback, send a new test message, and refresh the page until you get a high score.
 
+#### 5.5 Create your first admin account
+
+Navigate to the page https://forum.dev.spinalcordmri.org/, and follow the instruction to create an admin email account. Discourse will send you a confirmation email. If you've set up mail correctly, you should receive the email and be able to finish making your account.
+
+#### 5.6 Configure the forum
+
+Ideally, we should have a backup of the Discourse forum saved somewhere, such that you can load the backup into the new forum installation and be up and running like normal.
+
+Also, you may want to install important plugins such as `discourse-solved`.
+
 ----
 
 ### 6. Google/GitHub logins for Discourse
