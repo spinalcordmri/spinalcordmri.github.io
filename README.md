@@ -223,7 +223,7 @@ Thankfully, one of SCT's developers has created a script that will automate this
 2. Make the script executable using `chmod +x patch_opensmtpd_openssl.sh`.
 3. Run the script using `./patch_opensmtpd_openssl.sh`
 
-> _**NB:**: The `opensmtpd` installer will prompt you to name the system; make sure to tell it "forum.dev.spinalcordmri.org"._
+> _**NB:**: During the installation, a purple text UI will appear on the screen prompting you to answer some questions. For **Daemons using outdated libraries**, keep the default selections; Just press enter. For **Configuring opensmtpd**, enter in "forum.dev.spinalcordmri.org" for the system mail name, then press enter.._
 
 You can verify that `opensmptd` was built and installed correctly by running:
 
