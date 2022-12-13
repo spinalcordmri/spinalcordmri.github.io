@@ -210,23 +210,32 @@ action "relay_mail" relay helo "forum.spinalcordmri.org"
 match from auth for any action "relay_mail"
 ```
 
-Enable the server with
+#### 4.3 Enable verbose debugging
+
+Edit the following file:
+
+```
+sudo nano /etc/systemd/system/multi-user.target.wants/opensmtpd.service
+```
+
+And make the following change:
+
+```diff
+-ExecStart=/usr/sbin/smtpd
++ExecStart=/usr/sbin/smtpd -v
+```
+
+#### 4.4 Starting the mail server
+
+You can now start the server with the following command:
 
 ```
 systemctl enable --now opensmtpd
 ```
 
-View the logs -- especially to look for configuration errors -- with
+#### 4.5 Create a new mail-specific user account
 
-```
-journalctl -f -u opensmtpd
-```
-
-(it helps to run this in a separate tab while doing the rest of the configuration and testing)
-
-#### 4.3 Create a new mail-specific user account
-
-We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails.
+We need an SMTP account that Discourse can send mail via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails.
 
 1. Run a password generator and save the result somewhere secure. (You will need the result for the remainder of this tutorial.)
     - If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
