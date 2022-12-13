@@ -347,7 +347,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
 0. Prerequisite step: Opening logs
 
-   Start a new, separate connection into the server, and run `journalctl -u -f opensmtpd`. This will run in the background while you perform other tests.
+   Start a new, separate connection into the server, and run `journalctl -f -u opensmtpd`. This will run in the background while you perform other tests.
 
 1. Simple test (`mail`)
 
