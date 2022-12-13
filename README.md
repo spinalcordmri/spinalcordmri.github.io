@@ -320,7 +320,7 @@ SMTP username   : forum
 SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
 Notification    : noreply@forum.dev.spinalcordmri.org
 Let's Encrypt   : [initial administrator's email address]
-Maxmind License : [Enter}
+Maxmind License : [Enter]
 ~~~
 
 #### 5.2 Check SSL certs
