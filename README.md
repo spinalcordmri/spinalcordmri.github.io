@@ -181,15 +181,6 @@ forum.dev.spinalcordmri.org
 We run a small mail server on the same server as Discourse for it to send notifcations and password resets. Discourse recommends using a cloud service like MailGun or Amazon SES or SendGrid, but our usage is so small that the overhead (and risk) of outsourcing is high. Mail servers are something of an arcane art now, but never fear, these instructions will make it work.
 
 
-Before continuing, make sure that Discourse has generated the SSL cert. It is in `/var/discourse/shared/standalone/ssl/`:
-
-```
-root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.{cer,key}
--rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer
--rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key
-```
-
-
 #### 4.1 Install mail server
 
 Install [`opensmtpd`](https://www.opensmtpd.org/):
@@ -262,39 +253,11 @@ We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's
 
 > _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@forum.dev.spinalcordtoolbox.org`.
 
-#### 4.4 Test mail delivery
-
-We can now test that everything has been set up correctly. 
-
-To test, rather than sending to specific personal addresses, we use https://www.mail-tester.com/. This page is very helpful for finding issues missed during setup, especially around spamminess. Email is very very complicated and this helps a lot.
-
-Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address in one of two ways:
-
-1. Simple test (`mail`)
-
-    ```bash
-    echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
-    ```
-
-2. Complex test (`swaks`)
-
-    You will first need to install the "Swiss Army Knife for SMTP" *[`swaks`](https://www.jetmore.org/john/code/swaks/)) using `sudo apt-get install swaks`. Then, you can run:
-
-    ```bash
-    # You will need to enter the password that you set during the previous "User Setup" section!!
-    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 25 --auth-user forum --tls-verify --tls
-    ```
-
-Your goal here is to ensure that:
-
-- The email message gets delivered.
-- Your mail-tester score is relatively high (ideally at least 9/10, but at the very minimum, 7/10).
-
-Once you send your test message, you can click "View my results" on the mail-tester webpage. It will give you feedback on things that need to be changed. So, try to iteratively address the feedback, send a new test message, and refresh the page until you get a high score.
-
 ----
 
 ### 5. Server Setup: Discourse
+
+#### 5.1 Initial Setup
 
 Connect to the droplet server provided by Digital Ocean, then do:
   * Install Docker:
@@ -316,12 +279,67 @@ SMTP address  : forum.spinalcordmri.org
 SMTP port     : 587
 SMTP username : forum
 SMTP password : xxxxxxxxxxxxxxxxxxxxxxx
-Let's Encrypt : [press Enter]
+Let's Encrypt : [initial administrator's email address]
 ~~~
+
+Before continuing, make sure that Discourse has generated its SSL certs. They exist in `/var/discourse/shared/standalone/ssl/`:
+
+```
+root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.{cer,key}
+-rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.cer
+-rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.spinalcordmri.org.key
+```
+
+These files are necessary for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`.
+
+#### 5.2 Test mail delivery
+
+To create the first admin account on the newly-installed Discourse forum, you will need to ensure that email delivery is working.
+
+To test this, rather than sending messages to specific personal addresses, we use https://www.mail-tester.com/. This page is very helpful for finding issues missed during setup, especially around spamminess. Email is very very complicated and this helps a lot.
+
+Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address in one of three ways:
+
+0. Prerequisite step: Opening logs
+
+   Start a new, separate connection into the server, and run `journalctl -u -f opensmtpd`. This will run in the background while you perform other tests.
+
+1. Simple test (`mail`)
+
+    ```bash
+    echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
+    ```
+
+2. Complex test (`swaks`)
+
+    You will first need to install the "Swiss Army Knife for SMTP" ([`swaks`](https://www.jetmore.org/john/code/swaks/)) using `sudo apt-get install swaks`. Then, you can run:
+
+    ```bash
+    # You will need to enter the password that you set during the previous "User Setup" section!!
+    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 25 --auth-user forum --tls-verify --tls
+    ```
+
+3. Discourse-specific test
+
+    First, `cd` into `/var/discourse`. Then, run the following command:
+
+    ```bash
+    ./discourse-doctor
+    ```
    
-5. Test: make a post on the forum, and have someone else reply to it. Watch the mail log (`journalctl -u -f opensmtpd`!) and check if you receive the notification in your inbox.
+    It will run some automated tests, then it will prompt you for an email to send a test message to.
+
+With each of these tests, your goal here is to ensure that:
+
+- Nothing fishy shows up in the logs.
+- The email message gets delivered.
+- Your mail-tester score is relatively high (ideally at least 9/10, but at the very minimum, 7/10).
+
+Once you send your test message, you can click "View my results" on the mail-tester webpage. It will give you feedback on things that need to be changed. So, try to iteratively address the feedback, send a new test message, and refresh the page until you get a high score.
 
 ----
+
+
 
 ```
 
