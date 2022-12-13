@@ -329,7 +329,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
     echo "Test Message" | mail -s "This is a message" somethingsomething@mail-tester.com
     ```
 
-3. Complex test (`swaks`)
+2. Complex test (`swaks`)
 
     You will first need to install the "Swiss Army Knife for SMTP" ([`swaks`](https://www.jetmore.org/john/code/swaks/)) using `sudo apt-get install swaks`. Then, you can run:
 
@@ -338,7 +338,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
     swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
     ```
 
-4. Discourse-specific test
+3. Discourse-specific test
 
     First, `cd` into `/var/discourse`. Then, run the following command:
 
