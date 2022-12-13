@@ -228,6 +228,7 @@ We need an SMTP account Discourse can send via. `opensmtpd` simply uses the OS's
 
 1. Run a password generator and save the result somewhere secure. (You will need the result for the remainder of this tutorial.)
     - If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
+    - Note: Do NOT use symbols in your password. It can cause [weird bugs](https://github.com/neuropoly/computers/issues/403#issuecomment-1341500294) in Discourse's YAML config.
 2. Create the user `forum@forum.spinalcordmri.org` using the following commands:
     - `useradd -s /usr/sbin/nologin forum` : Creates the user account.
     - `passwd forum`: Sets the password for the account. Paste the password you generated earlier.
