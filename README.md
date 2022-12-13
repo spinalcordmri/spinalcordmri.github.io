@@ -134,7 +134,7 @@ These entries accomplish the following:
 2. [SPF Record](https://spfrecord.io/syntax/): This will help later on when setting up the forum's mail server. It authorizes the DigitalOcean droplet as a valid sender of mail, which helps prevent the forum's notification emails from being caught as spam.
 3. [DMARC Record](https://mxtoolbox.com/dmarc/details/what-is-a-dmarc-record): This will help later on when setting up the forum's mail server. It defines what should happen in case a message sent by the forum fails to be authenticated.
 
-You can double-check the current values by running the following commands:
+You can double-check the current values by running the following `dig` commands **from an external device**, not the server itself:
 
 ```console
 user@device:~$ dig +short forum.dev.spinalcordmri.org
