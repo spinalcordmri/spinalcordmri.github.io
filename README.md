@@ -189,8 +189,7 @@ Install [`opensmtpd`](https://www.opensmtpd.org/):
 sudo apt-get install opensmtpd
 ```
 
-The installer might(TODO: check on this) prompt you to name the system; make sure to tell it "forum.spinalcordmri.org".
-Afterwards, make sure that `/etc/mailname` contains "forum.spinalcordmri.org".
+The installer will prompt you to name the system; make sure to tell it "forum.spinalcordmri.org".
 
 **There is a bug** in the OpenSMTPd packaged for Ubuntu 18.04: https://bugs.launchpad.net/ubuntu/+source/opensmtpd/+bug/1840586. To work around it, apply this patch:
 
