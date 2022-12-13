@@ -275,11 +275,11 @@ These files must be present for `opensmtpd` to be able to send mail correctly, a
 
 #### 5.2 Test mail delivery
 
-To create the first admin account on the newly-installed Discourse forum, you will need to ensure that email delivery is working.
+To create the first admin account on the newly-installed Discourse forum, email delivery must be working, because Discourse will need to send out a confirmation email.
 
-To test this, rather than sending messages to specific personal addresses, we use https://www.mail-tester.com/. This page is very helpful for finding issues missed during setup, especially around spamminess. Email is very very complicated and this helps a lot.
+To test email delivery, rather than sending messages to specific personal addresses, we use https://www.mail-tester.com/. This page is very helpful for finding issues missed during setup, especially around spamminess. Email is very very complicated and this helps a lot.
 
-Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address in one of three ways:
+Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address alongside one of three testing methods:
 
 0. Prerequisite step: Opening logs
 
@@ -297,7 +297,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
     ```bash
     # You will need to enter the password that you set during the previous "User Setup" section!!
-    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 25 --auth-user forum --tls-verify --tls
+    swaks --to me@example.com --from noreply@forum.spinalcordmri.org --server forum.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
     ```
 
 3. Discourse-specific test
