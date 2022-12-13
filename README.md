@@ -339,11 +339,12 @@ Once you send your test message, you can click "View my results" on the mail-tes
 
 ----
 
+### 6. Google/GitHub logins for Discourse
 
+<details>
+<summary> Note: These steps are not currently used in the production server for spinalcordmri.org </summary>
 
-```
-
-### Configuring Google login for Discourse ([reference](https://meta.discourse.org/t/configuring-google-login-for-discourse/15858))
+#### 6.1 Configuring Google login for Discourse ([reference](https://meta.discourse.org/t/configuring-google-login-for-discourse/15858))
 
 Go to https://console.developers.google.com, click on Credentials and create a new Project.
 - Project name `Forum spinalcordmri`
@@ -363,7 +364,8 @@ Configure your OAuth Consent Screen
 Click Library in the left menu and you’ll see a huge list of Google API’s. Find Google+ API and enable them.
 
 The API will create `google_client_id` and `google_client_secret` which you can add under http://forum.spinalcordmri.org/admin/site_settings/category/login, after checking `enable google oauth2 logins`
-### Configure GitHub login for Discourse ([reference](https://meta.discourse.org/t/configuring-github-login-for-discourse/13745))
+
+#### 6.2  Configure GitHub login for Discourse ([reference](https://meta.discourse.org/t/configuring-github-login-for-discourse/13745))
 
 Under github.com/spinalcordmri, click Settings (the gear icon), then look for OAuth Applications in the left menu. Select Register new application.
   - Application name
@@ -384,13 +386,4 @@ Under github.com/spinalcordmri, click Settings (the gear icon), then look for OA
   ~~~
 The app will create `github_client_id` and `github_client_secret`which you can add under http://forum.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
 
-## Debugging
-
-Check what IP are associated with the URL:
-~~~
-host spinalcordmri.org
-~~~
-Check that domain exists, and get info about registrar:
-~~~
-whois spinalcordmri.org
-~~~
+</details>
