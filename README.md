@@ -271,15 +271,7 @@ And make the following change:
 +ExecStart=/usr/sbin/smtpd -v
 ```
 
-#### 4.4 Starting the mail server
-
-You can now start the server with the following command:
-
-```
-systemctl enable --now opensmtpd
-```
-
-#### 4.5 Create a new mail-specific user account
+#### 4.4 Create a new mail-specific user account
 
 We need an SMTP account that Discourse can send mail via. `opensmtpd` simply uses the OS's users by default, so we will make an OS user for outgoing emails.
 
@@ -337,7 +329,15 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri
 
 These files must be present for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`. 
 
-#### 5.3 Test mail delivery
+#### 5.3 Starting the mail server
+
+Once you've confirmed that the SSL certs are present, you can start the mail server with the following command:
+
+```
+systemctl enable --now opensmtpd
+```
+
+#### 5.4 Test mail delivery
 
 To create the first admin account on the newly-installed Discourse forum, email delivery must be working, because Discourse will need to send out a confirmation email.
 
