@@ -299,29 +299,31 @@ We need an SMTP account that Discourse can send mail via. `opensmtpd` simply use
 #### 5.1 Initial Setup
 
 Connect to the droplet server provided by Digital Ocean, then do:
-  * Install Docker:
-~~~
-wget -qO- https://get.docker.com/ | sh
-~~~
+- Install Docker:
+    ```
+    wget -qO- https://get.docker.com/ | sh
+    ```
 - Clone Discourse deploy
-~~~
-mkdir /var/discourse
-git clone https://github.com/discourse/discourse_docker.git /var/discourse
-cd /var/discourse
-~~~
+    ```
+    mkdir /var/discourse
+    git clone https://github.com/discourse/discourse_docker.git /var/discourse
+    cd /var/discourse
+    ```
 - Install Discourse
-~~~
-./discourse-setup
-Hostname        : forum.dev.spinalcordmri.org
-Email           : [initial administrator's email address]
-SMTP address    : forum.dev.spinalcordmri.org
-SMTP port       : 587
-SMTP username   : forum
-SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
-Notification    : noreply@forum.dev.spinalcordmri.org
-Let's Encrypt   : [initial administrator's email address]
-Maxmind License : [Enter]
-~~~
+    ```
+    ./discourse-setup
+    Hostname        : forum.dev.spinalcordmri.org
+    Email           : [initial administrator's email address]
+    SMTP address    : forum.dev.spinalcordmri.org
+    SMTP port       : 587
+    SMTP username   : forum
+    SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
+    Notification    : noreply@forum.dev.spinalcordmri.org
+    Let's Encrypt   : [initial administrator's email address]
+    Maxmind License : [Enter]
+    ```
+
+This will download the Discourse base image, then build the image and initialize the Docker container.
 
 #### 5.2 Check SSL certs
 
@@ -414,21 +416,21 @@ The API will create `google_client_id` and `google_client_secret` which you can 
 
 Under github.com/spinalcordmri, click Settings (the gear icon), then look for OAuth Applications in the left menu. Select Register new application.
   - Application name
-  ~~~
+  ```
   Forum spinalcordmri
-  ~~~
+  ```
   - Homepage URL
-  ~~~
+  ```
   http://forum.dev.spinalcordmri.org/
-  ~~~
+  ```
   - Application description
-  ~~~
+  ```
   Forum spinalcordmri
-  ~~~
+  ```
   - Authorization callback URL
-  ~~~
+  ```
   http://forum.dev.spinalcordmri.org//auth/github/callback
-  ~~~
+  ```
 The app will create `github_client_id` and `github_client_secret`which you can add under http://forum.dev.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
 
 </details>
