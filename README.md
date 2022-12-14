@@ -171,6 +171,8 @@ Or, you can navigate to your droplet's main page, then click the "Console" butto
 
 From here, you can make changes to the server itself. 
 
+> _**NB:** If the initial DNS records haven't propagated yet, you can also SSH directly into the server using its IP address (`ssh root@142.93.152.255`) while you wait._
+
 #### 3.2 Updating the hosts and hostname files
 
 First, connect to the server using either SSH or the built-in DigitalOcean console. Next, edit two files using the text editor of your choice:
