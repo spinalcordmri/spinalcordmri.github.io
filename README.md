@@ -346,7 +346,9 @@ This will download the Discourse base image, then build the image and initialize
 
 #### 5.2 Check SSL certs
 
-Before continuing, make sure that Discourse has generated its SSL certs. (They will be [generated automatically](https://meta.discourse.org/t/set-up-https-support-with-lets-encrypt/40709), as long as you provide an email address for Let's Encrypt.) They exist in `/var/discourse/shared/standalone/ssl/`:
+Before continuing, make sure that Discourse has generated its SSL certs. (They will be [generated automatically](https://meta.discourse.org/t/set-up-https-support-with-lets-encrypt/40709), so long as you provide an email address for Let's Encrypt.) 
+
+The files exist in `/var/discourse/shared/standalone/ssl/`:
 
 ```
 root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.{cer,key}
@@ -354,7 +356,7 @@ root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri
 -rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.key
 ```
 
-These files must be present for `opensmtpd` to be able to send mail correctly, as per the configuration in `/etc/smtpd.conf`. 
+These files must be present for `opensmtpd` to be able to send mail correctly, as per the previous `/etc/smtpd.conf`  configuration we pasted in during a previous step. 
 
 #### 5.3 Starting the mail server
 
