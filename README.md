@@ -302,17 +302,39 @@ Connect to the droplet server provided by Digital Ocean, then do:
     git clone https://github.com/discourse/discourse_docker.git /var/discourse
     cd /var/discourse
     ```
+- Increase timeout values
+    
+    Before we can install Discourse, we must make a small tweak to the default Discourse Docker container template.
+
+    Open the file `/var/discourse/samples/standalone.yml` and add the following lines to the SMTP section:
+
+    ```diff
+      ## TODO: The SMTP mail server used to validate new accounts and send notifications
+      # SMTP ADDRESS, username, and password are required
+      # WARNING the char '#' in SMTP password can cause problems!
+      DISCOURSE_SMTP_ADDRESS: smtp.example.com
+      #DISCOURSE_SMTP_PORT: 587
+      DISCOURSE_SMTP_USER_NAME: user@example.com
+      DISCOURSE_SMTP_PASSWORD: pa$$word
+    + DISCOURSE_SMTP_OPEN_TIMEOUT: 30
+    + DISCOURSE_SMTP_READ_TIMEOUT: 30
+      #DISCOURSE_SMTP_ENABLE_START_TLS: true           # (optional, default true)
+      #DISCOURSE_SMTP_DOMAIN: discourse.example.com    # (required by some providers)
+      #DISCOURSE_NOTIFICATION_EMAIL: noreply@discourse.example.com    # (address to send notifications from)
+    ```
+  
+    The default values for these options are `5` seconds, which is too strict for our (slower) internal mail server. So, we must increase the timeout [to avoid `Net::ReadTimeout` errors](https://meta.discourse.org/t/smtp-net-readtimeout-without-relation-to-net-or-login-problems-smtp-host-is-just-slow/235727/1).
 - Install Discourse
     ```
     ./discourse-setup
     Hostname        : forum.dev.spinalcordmri.org
-    Email           : [initial administrator's email address]
+    Email           : [initial administrator's email address -- will be used for 1st admin account creation]
     SMTP address    : forum.dev.spinalcordmri.org
     SMTP port       : 587
     SMTP username   : forum
     SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
     Notification    : noreply@forum.dev.spinalcordmri.org
-    Let's Encrypt   : [initial administrator's email address]
+    Let's Encrypt   : neuropoly-admin@liste.polymtl.ca
     Maxmind License : [Enter]
     ```
 
