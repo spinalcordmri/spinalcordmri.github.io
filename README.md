@@ -46,7 +46,7 @@ If you need to remake the forum's VM from scratch (e.g. to debug an issue withou
 
 Before you begin, first choose an [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (i.e. a domain name). This can be `forum.spinalcordmri.org` if you're starting completely from scratch (i.e. there is no currently-running forum instance) or something like `forum.dev.spinalcordmri.org` (if you're setting up a separate test server).
 
-> _**NB**: For the rest of these instructions, we will use the `forum.dev.spinalcordmri.org` hostname, but make sure you substitute in whichever domain name you decided on._
+> _**NB**: For the rest of these instructions, we will use the placeholder `{subdomain}.spinalcordmri.org`, but make sure you substitute in whichever domain name you decided on._
 
 ----
 
@@ -74,14 +74,14 @@ Next, create a droplet using the following settings:
   - **Authentication**: If your key isn't present yet, press "New SSH Key" and follow the instructions to authenticate the device you're currently using.
   - **Select additional options**: Check "Monitoring" and leave the rest blank.
   - **How many Droplets?**: 1 Droplet
-  - **Choose a hostname**: This is a very critical step! Make sure you enter the same domain name you chose earlier (e.g. `forum.dev.spinalcordmri.org`)
+  - **Choose a hostname**: This is a very critical step! Make sure you enter the same domain name you chose earlier (`{subdomain}.spinalcordmri.org`)
   - **Add tags**: Skip this step
 
 Once the droplet has finished creating, you should see a public IP address on the droplet's page that looks something like `ipv4: 142.93.152.255`. You can then use this IP address to test that you've set the hostname correctly by running the following command on any linux machine:
 
 ```console
 user@device:~$ dig +short -x 142.93.152.255
-forum.dev.spinalcordmri.org.
+{subdomain}.spinalcordmri.org.
 ```
 
 Once you've confirmed that it returns the domain name you chose, you're all set to connect to the droplet.
@@ -100,31 +100,31 @@ Next, on the dashboard, navigate to the [Advanced DNS tab](https://ap.www.namech
 
 First you will want to make note of two things:
 
-1. The subdomain label of your domain name. For `forum.dev.spinalcordmri.org`, you will use `forum.dev` to identify your subdomain.
-2. The IP address of the server (from step 1). For `forum.dev.spinalcordmri.org`, the IP address was `142.93.152.255`.
+1. The subdomain label of your domain name. For `{subdomain}.spinalcordmri.org`, you will use `{subdomain}` to identify your subdomain.
+2. The IP address of the server (from step 1). For `{subdomain}.spinalcordmri.org`, the IP address was `142.93.152.255`.
 
 You can now use the red "Add New Record" button to add 3 new records in the following form:
 
 Type | Host | Value | TTL
 -- | -- | -- | --
-A Record | forum.dev | 142.93.152.255 | Automatic
-TXT Record | forum.dev | v=spf1 a mx ip4:142.93.152.255 include:spf.efwd.registrar-servers.com ~all | Automatic
-TXT Record | _dmarc.forum.dev | v=DMARC1; p=none | Automatic
+A Record | {subdomain} | 142.93.152.255 | Automatic
+TXT Record | {subdomain} | v=spf1 a mx ip4:142.93.152.255 include:spf.efwd.registrar-servers.com ~all | Automatic
+TXT Record | _dmarc.{subdomain} | v=DMARC1; p=none | Automatic
 
 These entries accomplish the following:
 
-1. [A Record](https://support.dnsimple.com/articles/a-record/): Maps the `forum.dev.spinalcordmri.org` subdomain to the DigitalOcean droplet's IP address.
+1. [A Record](https://support.dnsimple.com/articles/a-record/): Maps the `{subdomain}.spinalcordmri.org` subdomain to the DigitalOcean droplet's IP address.
 2. [SPF Record](https://spfrecord.io/syntax/): This will help later on when setting up the forum's mail server. It authorizes the DigitalOcean droplet as a valid sender of mail, which helps prevent the forum's notification emails from being caught as spam.
 3. [DMARC Record](https://mxtoolbox.com/dmarc/details/what-is-a-dmarc-record): This will help later on when setting up the forum's mail server. It defines what should happen in case a message sent by the forum fails to be authenticated.
 
 You can double-check the current values by running the following `dig` commands **from an external device**, not the server itself:
 
 ```console
-user@device:~$ dig +short forum.dev.spinalcordmri.org
+user@device:~$ dig +short {subdomain}.spinalcordmri.org
 142.93.152.255
-user@device:~$ dig +short TXT forum.dev.spinalcordmri.org
+user@device:~$ dig +short TXT {subdomain}.spinalcordmri.org
 "v=spf1 a mx ip4:159.89.119.65 include:spf.efwd.registrar-servers.com ~all"
-user@device:~$ dig +short TXT _dmarc.forum.dev.spinalcordmri.org
+user@device:~$ dig +short TXT _dmarc.{subdomain}.spinalcordmri.org
 "v=DMARC1; p=none"
 ```
 
@@ -136,15 +136,15 @@ Next, scroll down to the "Mail Settings" section and find the table containing M
 
 Type | Host | Mail Server | Priority | TTL
 -- | -- | -- | -- | --
-MX Record | forum.dev | forum.dev.spinalcordmri.org. | 0 | Automatic
+MX Record | {subdomain} | {subdomain}.spinalcordmri.org. | 0 | Automatic
 
 Again, this setting will help us later when we set up our mail server. (There's not much here to talk about, since details such as 'priority' are only really relevant for setups with [multiple mail servers](https://www.cloudflare.com/learning/dns/dns-records/dns-mx-record/).)
 
 You can double-check the current value of this record by running the following command:
 
 ```console
-user@device:~$ dig +short MX forum.dev.spinalcordmri.org
-0 forum.dev.spinalcordmri.org.
+user@device:~$ dig +short MX {subdomain}.spinalcordmri.org
+0 {subdomain}.spinalcordmri.org.
 ```
 
 ----
@@ -158,7 +158,7 @@ Now that NameCheap is configured, we can set up the server itself, starting with
 You can connect to the server either through SSH (assuming your local device contains the SSH key you added earlier):
 
 ```console
-user@device:~$ ssh root@forum.dev.spinalcordmri.org
+user@device:~$ ssh root@{subdomain}.spinalcordmri.org
 Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-50-generic x86_64)
 
 Last login: Fri Dec  9 23:06:11 2022 from 162.243.188.66
@@ -179,12 +179,12 @@ First, connect to the server using either SSH or the built-in DigitalOcean conso
 
 ```console
 root@forum:~# sudo nano /etc/hostname
-forum.dev.spinalcordmri.org
+{subdomain}.spinalcordmri.org
 root@forum:~# sudo nano /etc/mailname
-forum.dev.spinalcordmri.org
+{subdomain}.spinalcordmri.org
 ```
 
-Additionally, edit the `/etc/hosts` file to ensure that the hostname of the server (`forum.dev.spinalcordmri.org`) maps to the server's permanent IP address [instead of `127.0.1.1`](https://qref.sourceforge.net/quick/ch-gateway.en.html#s-net-dns).
+Additionally, edit the `/etc/hosts` file to ensure that the hostname of the server (`{subdomain}.spinalcordmri.org`) maps to the server's permanent IP address [instead of `127.0.1.1`](https://qref.sourceforge.net/quick/ch-gateway.en.html#s-net-dns).
 
 ```console
 root@forum:~# sudo nano /etc/hosts
@@ -195,7 +195,7 @@ root@forum:~# sudo nano /etc/hosts
 # b.) change or remove the value of 'manage_etc_hosts' in
 #     /etc/cloud/cloud.cfg or cloud-config from user-data
 #
-142.93.152.255 forum.dev.spinalcordmri.org
+142.93.152.255 {subdomain}.spinalcordmri.org
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
@@ -208,7 +208,7 @@ Reboot the server by running `reboot`, then reconnect and ensure that the follow
 
 ```console
 root@forum:~# hostname
-forum.dev.spinalcordmri.org
+{subdomain}.spinalcordmri.org
 ```
 
 ----
@@ -228,7 +228,7 @@ However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy inte
 3. Run the script using `./patch_opensmtpd_openssl.sh`
 4. Grab a coffee and find something interested to read. This step will take a while!
 
-> _**NB:**: During the installation, a purple text UI will appear on the screen prompting you to answer some questions. For **Daemons using outdated libraries**, keep the default selections; Just press enter. For **Configuring opensmtpd**, enter in "forum.dev.spinalcordmri.org" for the system mail name, then press enter.._
+> _**NB:**: During the installation, a purple text UI will appear on the screen prompting you to answer some questions. For **Daemons using outdated libraries**, keep the default selections; Just press enter. For **Configuring opensmtpd**, enter in "{subdomain}.spinalcordmri.org" for the system mail name, then press enter._
 
 You can verify that `opensmptd` was built and installed correctly by running:
 
@@ -247,17 +247,17 @@ If `libcrypto.so.1.1` and `libssl.so.1.1` are linked to `/opt/openssl-1.1.1q/`, 
 Replace the existing contents of  `/etc/smtpd.conf` with the following:
 
 ```
-pki forum.dev.spinalcordmri.org cert "/var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.cer"
-pki forum.dev.spinalcordmri.org key "/var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.key"
+pki {subdomain}.spinalcordmri.org cert "/var/discourse/shared/standalone/ssl/{subdomain}.spinalcordmri.org.cer"
+pki {subdomain}.spinalcordmri.org key "/var/discourse/shared/standalone/ssl/{subdomain}.spinalcordmri.org.key"
 
-listen on eth0 tls-require pki forum.dev.spinalcordmri.org
-listen on eth0 tls-require pki forum.dev.spinalcordmri.org auth port 587
+listen on eth0 tls-require pki {subdomain}.spinalcordmri.org
+listen on eth0 tls-require pki {subdomain}.spinalcordmri.org auth port 587
 table aliases file:/etc/aliases
 
 action "local_mail" maildir "~/.mail" alias <aliases>
 match for local action "local_mail"
 
-action "relay_mail" relay helo "forum.dev.spinalcordmri.org"
+action "relay_mail" relay helo "{subdomain}.spinalcordmri.org"
 match from auth for any action "relay_mail"
 ```
 
@@ -283,11 +283,11 @@ We need an SMTP account that Discourse can send mail via. `opensmtpd` simply use
 1. Run a password generator and save the result somewhere secure. (You will need the result for the remainder of this tutorial.)
     - If you have a password manager, see if it has a password generator built in. Otherwise there's [Diceware](https://www.rempe.us/diceware/#eff) and [xkpasswd](https://xkpasswd.net/s/) and [xkcdpass](https://pypi.org/project/xkcdpass/) and [pwgen](https://github.com/tytso/pwgen)
     - Note: Do NOT use symbols in your password. It can cause [weird bugs](https://github.com/neuropoly/computers/issues/403#issuecomment-1341500294) in Discourse's YAML config.
-2. Create the user `forum@forum.dev.spinalcordmri.org` using the following commands:
+2. Create the user `forum@{subdomain}.spinalcordmri.org` using the following commands:
     - `useradd -s /usr/sbin/nologin forum` : Creates the user account.
     - `passwd forum`: Sets the password for the account. Paste the password you generated earlier.
 
-> _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@forum.dev.spinalcordtoolbox.org`._
+> _**NB**: This username is *not* the same as what's on the email headers, because `opensmtpd` allows authenticated users to spoof their identities, and we want to send as `noreply@{subdomain}.spinalcordmri.org`._
 
 ----
 
@@ -331,13 +331,13 @@ Connect to the droplet server provided by Digital Ocean, then do:
 - Install Discourse
     ```
     ./discourse-setup
-    Hostname        : forum.dev.spinalcordmri.org
+    Hostname        : {subdomain}.spinalcordmri.org
     Email           : [initial administrator's email address -- will be used for 1st admin account creation]
-    SMTP address    : forum.dev.spinalcordmri.org
+    SMTP address    : {subdomain}.spinalcordmri.org
     SMTP port       : 587
     SMTP username   : forum
     SMTP password   : xxxxxxxxxxxxxxxxxxxxxxx
-    Notification    : noreply@forum.dev.spinalcordmri.org
+    Notification    : noreply@{subdomain}.spinalcordmri.org
     Let's Encrypt   : neuropoly-admin@liste.polymtl.ca
     Maxmind License : [Enter]
     ```
@@ -351,9 +351,9 @@ Before continuing, make sure that Discourse has generated its SSL certs. (They w
 The files exist in `/var/discourse/shared/standalone/ssl/`:
 
 ```
-root@forum:~# ls -l /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.{cer,key}
--rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.cer
--rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/forum.dev.spinalcordmri.org.key
+root@forum:~# ls -l /var/discourse/shared/standalone/ssl/{subdomain}.spinalcordmri.org.{cer,key}
+-rw-r--r-- 1 root root 3799 Dec  5 08:33 /var/discourse/shared/standalone/ssl/{subdomain}.spinalcordmri.org.cer
+-rw------- 1 root root 3247 Dec  5 08:33 /var/discourse/shared/standalone/ssl/{subdomain}.spinalcordmri.org.key
 ```
 
 These files must be present for `opensmtpd` to be able to send mail correctly, as per the previous `/etc/smtpd.conf`  configuration we pasted in during a previous step. 
@@ -371,8 +371,8 @@ systemctl enable --now opensmtpd
 You should be able to connect to the mail server by running:
 
 ```console
-root@forum:~# nc forum.dev.spinalcordmri.org 587
-220 forum.dev.spinalcordmri.org ESMTP OpenSMTPD
+root@forum:~# nc {subdomain}.spinalcordmri.org 587
+220 {subdomain}.spinalcordmri.org ESMTP OpenSMTPD
 ```
 
 #### 5.5 Test mail delivery
@@ -397,7 +397,7 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
     ```bash
     # You will need to enter the password that you set during the previous "User Setup" section!!
-    swaks --to me@example.com --from noreply@forum.dev.spinalcordmri.org --server forum.dev.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
+    swaks --to me@example.com --from noreply@{subdomain}.spinalcordmri.org --server {subdomain}.spinalcordmri.org -p 587 --auth-user forum --tls-verify --tls
     ```
 
 3. Discourse-specific test
@@ -419,7 +419,7 @@ Once you send your test message, you can click "View my results" on the mail-tes
 
 #### 5.6 Create your first admin account
 
-Navigate to the page https://forum.dev.spinalcordmri.org/, and follow the instruction to create an admin email account. Discourse will send you a confirmation email. If you've set up mail correctly, you should receive the email and be able to finish making your account.
+Navigate to the page https://{subdomain}.spinalcordmri.org/, and follow the instruction to create an admin email account. Discourse will send you a confirmation email. If you've set up mail correctly, you should receive the email and be able to finish making your account.
 
 #### 5.7 Configure the forum
 
@@ -443,8 +443,8 @@ Go to https://console.developers.google.com, click on Credentials and create a n
 Select Credentials in the left menu, Create credentials and OAuth client ID type for the credentials.
 - Application type `Web application`
 - Name `Forum spinalcordmri.org`
-- Authorized JavaScript origins `http://forum.dev.spinalcordmri.org`
-- Authorized redirect URIs `http://forum.dev.spinalcordmri.org/auth/google_oauth2/callback`
+- Authorized JavaScript origins `http://{subdomain}.spinalcordmri.org`
+- Authorized redirect URIs `http://{subdomain}.spinalcordmri.org/auth/google_oauth2/callback`
 
 Configure your OAuth Consent Screen
   - Product name shown to users `Forum spinalcordmri.org`
@@ -453,7 +453,7 @@ Configure your OAuth Consent Screen
 
 Click Library in the left menu and you’ll see a huge list of Google API’s. Find Google+ API and enable them.
 
-The API will create `google_client_id` and `google_client_secret` which you can add under http://forum.dev.spinalcordmri.org/admin/site_settings/category/login, after checking `enable google oauth2 logins`
+The API will create `google_client_id` and `google_client_secret` which you can add under http://{subdomain}.spinalcordmri.org/admin/site_settings/category/login, after checking `enable google oauth2 logins`
 
 #### 6.2  Configure GitHub login for Discourse ([reference](https://meta.discourse.org/t/configuring-github-login-for-discourse/13745))
 
@@ -464,7 +464,7 @@ Under github.com/spinalcordmri, click Settings (the gear icon), then look for OA
   ```
   - Homepage URL
   ```
-  http://forum.dev.spinalcordmri.org/
+  http://{subdomain}.spinalcordmri.org/
   ```
   - Application description
   ```
@@ -472,8 +472,8 @@ Under github.com/spinalcordmri, click Settings (the gear icon), then look for OA
   ```
   - Authorization callback URL
   ```
-  http://forum.dev.spinalcordmri.org//auth/github/callback
+  http://{subdomain}.spinalcordmri.org//auth/github/callback
   ```
-The app will create `github_client_id` and `github_client_secret`which you can add under http://forum.dev.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
+The app will create `github_client_id` and `github_client_secret`which you can add under http://{subdomain}.spinalcordmri.org/admin/site_settings/category/login, after checking `enable github logins`
 
 </details>
