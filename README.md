@@ -86,29 +86,11 @@ forum.dev.spinalcordmri.org.
 
 Once you've confirmed that it returns the domain name you chose, you're all set to connect to the droplet.
 
-#### 1.2 Connecting to the droplet for the first time
-
-You can connect to the server either through SSH (assuming your local device contains the SSH key you added earlier):
-
-```console
-user@device:~$ ssh root@forum.dev.spinalcordmri.org
-Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-50-generic x86_64)
-
-Last login: Fri Dec  9 23:06:11 2022 from 162.243.188.66
-root@forum:~# 
-```
-
-Or, you can navigate to your droplet's main page, then click the "Console" button in the top-left corner:
-
-![image](https://user-images.githubusercontent.com/16181459/207170763-68db34b0-4f1d-4e6d-a7b6-72340994c7ae.png)
-
-From here, you can make changes to the server itself. 
-
 ----
 
 ### 2. Namecheap
 
-Before we make any changes to the server, we first have to configure some DNS settings.
+Before we make any changes to the server, though, we first have to configure some DNS settings.
 
 First, make sure you have an account with Namecheap. Again, you will need to contact someone on the admin team; they will grant you permissions for specific domains on a case-by-case basis. In this case, you will want access to the spinalcordmri.org domain, which will grant you access to the [Spinalcordmri.org Dashboard](https://ap.www.namecheap.com/domains/domaincontrolpanel/spinalcordmri.org/domain).
 
@@ -170,6 +152,26 @@ user@device:~$ dig +short MX forum.dev.spinalcordmri.org
 ### 3. Server Setup: Hostnames
 
 Now that NameCheap is configured, we can set up the server itself, starting with its hostname.
+
+#### 3.1 Connecting to the droplet for the first time
+
+You can connect to the server either through SSH (assuming your local device contains the SSH key you added earlier):
+
+```console
+user@device:~$ ssh root@forum.dev.spinalcordmri.org
+Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-50-generic x86_64)
+
+Last login: Fri Dec  9 23:06:11 2022 from 162.243.188.66
+root@forum:~# 
+```
+
+Or, you can navigate to your droplet's main page, then click the "Console" button in the top-left corner:
+
+![image](https://user-images.githubusercontent.com/16181459/207170763-68db34b0-4f1d-4e6d-a7b6-72340994c7ae.png)
+
+From here, you can make changes to the server itself. 
+
+#### 3.2 Updating the hosts and hostname files
 
 First, connect to the server using either SSH or the built-in DigitalOcean console. Next, edit two files using the text editor of your choice:
 
