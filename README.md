@@ -320,8 +320,8 @@ Connect to the droplet server provided by Digital Ocean, then do:
       #DISCOURSE_SMTP_PORT: 587
       DISCOURSE_SMTP_USER_NAME: user@example.com
       DISCOURSE_SMTP_PASSWORD: pa$$word
-    + DISCOURSE_SMTP_OPEN_TIMEOUT: 30
-    + DISCOURSE_SMTP_READ_TIMEOUT: 30
+    + DISCOURSE_SMTP_OPEN_TIMEOUT: 60
+    + DISCOURSE_SMTP_READ_TIMEOUT: 60
       #DISCOURSE_SMTP_ENABLE_START_TLS: true           # (optional, default true)
       #DISCOURSE_SMTP_DOMAIN: discourse.example.com    # (required by some providers)
       #DISCOURSE_NOTIFICATION_EMAIL: noreply@discourse.example.com    # (address to send notifications from)
@@ -409,6 +409,8 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
     ```
    
     It will run some automated tests, then it will prompt you for an email to send a test message to.
+
+    > _**NB**: There is a possibility that you may encounter a `Net::ReadTimeout` error. In that case, edit the `/var/discourse/containers/app.yml` file to increase the values of `DISCOURSE_SMTP_OPEN_TIMEOUT` and `DISCOURSE_SMTP_READ_TIMEOUT`. Then, restart the docker container by running `cd /var/discourse`, `./launcher destroy app`, and `./launcher start app`._
 
 With each of these tests, your goal here is to ensure that:
 
