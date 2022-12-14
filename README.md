@@ -423,11 +423,19 @@ Once you send your test message, you can click "View my results" on the mail-tes
 
 Navigate to the page https://{subdomain}.spinalcordmri.org/, and follow the instruction to create an admin email account. Discourse will send you a confirmation email. If you've set up mail correctly, you should receive the email and be able to finish making your account.
 
-#### 5.7 Configure the forum
+Once you log in for the first time, you will be presented with an onboarding flow that will ask for things like "Community name" and "Point of contact". Feel free to put some sensible defaults (e.g. "Spinalcordmri.org", "neuropoly-admin@liste.polymtl.ca", etc.). However, if you will be loading a previous backup of the forum, then these settings will be overwritten anyway, making them moot.
 
-Ideally, we should have a backup of the Discourse forum saved somewhere, such that you can load the backup into the new forum installation and be up and running like normal.
+#### 5.7 Loading a previous backup of the forum
 
-Also, you may want to install important plugins such as `discourse-solved` at this time, too.
+If there is a currently-running instance of the forum, you can download backups from [the Backups page](https://forum.spinalcordmri.org/admin/backups).
+
+Next, you need to upload this backup to the forum. You can try using the Backups page on the dev forum, however sometimes uploads will fail inexplicably with (due to the large size of the backups). So, you may need to instead use [FileZilla to transfer files to the Digital Ocean Droplet](https://docs.digitalocean.com/products/droplets/how-to/transfer-files/). Specifically, the backup will need to be uploaded to the `/var/discourse/shared/standalone/backups/default` folder.
+
+Finally, you will need to enable the "allow restore" setting on the dev server's Settings page. Then, you can return to the Backups page and restore the uploaded backup.
+
+#### 5.8 Installing plugins
+
+Currently, the only mandatory plugin in use by the forum is [`discourse-solved`](https://meta.discourse.org/t/discourse-solved/30155). To install it, please follow the instructions from the [Install Plugins in Discourse](https://meta.discourse.org/t/install-plugins-in-discourse/19157) documentation page.
 
 ----
 
