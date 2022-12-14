@@ -116,9 +116,10 @@ Next, on the dashboard, navigate to the [Advanced DNS tab](https://ap.www.namech
 
 #### 2.1 Host Records
 
-First you will want to make note the subdomain label of your domain name. For `forum.dev.spinalcordmri.org`, you will use `forum.dev` to identify your subdomain.
+First you will want to make note of two things:
 
-Next, you will want to mark down the IP address you noted in Step 1. For `forum.dev.spinalcordmri.org`, the IP address was `142.93.152.255`.
+1. The subdomain label of your domain name. For `forum.dev.spinalcordmri.org`, you will use `forum.dev` to identify your subdomain.
+2. The IP address of the server (from step 1). For `forum.dev.spinalcordmri.org`, the IP address was `142.93.152.255`.
 
 You can now use the red "Add New Record" button to add 3 new records in the following form:
 
