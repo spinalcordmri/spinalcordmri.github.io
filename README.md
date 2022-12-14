@@ -215,11 +215,9 @@ We run a small mail server on the same server as Discourse for it to send notifc
 
 #### 4.1 Install mail server
 
-First, we must install [`opensmtpd`](https://www.opensmtpd.org/). However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.04 installs by default.
+First, we must install our mail server software of choice, [`opensmtpd`](https://www.opensmtpd.org/). 
 
-To get around this, we must build `openssl` and `opensmtpd` from their source code, to ensure that `opensmptd` uses OpenSSL v1.1.1, rather than v3.0.
-
-Thankfully, one of SCT's developers has created a script that will automate this procedure.
+However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.04 installs by default. To get around this, we must build `openssl` and `opensmtpd` from their source code, to ensure that `opensmptd` uses OpenSSL v1.1.1, rather than v3.0. Thankfully, one of SCT's developers (@kousu) has created a script that will automate this procedure:
 
 1. Run `cd ~`, then create a new file called `patch_opensmtpd_openssl.sh` and paste in the contents of [this comment](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171#issuecomment-1218503481):
 2. Make the script executable using `chmod +x patch_opensmtpd_openssl.sh`.
