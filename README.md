@@ -128,7 +128,7 @@ user@device:~$ dig +short TXT _dmarc.forum.dev.spinalcordmri.org
 "v=DMARC1; p=none"
 ```
 
-> _**NB**: If you make a mistake and want to update the values of these records, please note that it may take [up to a few hours](https://ns1.com/resources/dns-propagation) for changes to these records to propagate. So, if you're running `dig` and see no change, that's why!_
+> _**NB**: Please note that it may take [up to a few hours](https://ns1.com/resources/dns-propagation) for changes to these records to propagate. So, if you're running `dig` and see no change, that's why!_
 
 #### 2.2 Mail Settings (i.e. MX Records)
 
