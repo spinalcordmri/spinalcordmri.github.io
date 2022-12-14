@@ -419,7 +419,7 @@ Navigate to the page https://forum.dev.spinalcordmri.org/, and follow the instru
 
 Ideally, we should have a backup of the Discourse forum saved somewhere, such that you can load the backup into the new forum installation and be up and running like normal.
 
-Also, you may want to install important plugins such as `discourse-solved`.
+Also, you may want to install important plugins such as `discourse-solved` at this time, too.
 
 ----
 
