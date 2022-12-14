@@ -346,10 +346,6 @@ To test email delivery, rather than sending messages to specific personal addres
 
 Go to https://www.mail-tester.com/ and copy the email address it gives you. You can use this address alongside one of three testing methods:
 
-0. Prerequisite step: Opening logs
-
-   Start a new, separate connection into the server, and run `journalctl -f -u opensmtpd`. This will run in the background while you perform other tests.
-
 1. Simple test (`mail`)
 
     You will first need to install [Mailutils](https://mailutils.org/) using `sudo apt-get install mailutils`. Then, you can run:
@@ -379,7 +375,6 @@ Go to https://www.mail-tester.com/ and copy the email address it gives you. You 
 
 With each of these tests, your goal here is to ensure that:
 
-- Nothing fishy shows up in the logs.
 - The email message gets delivered.
 - Your mail-tester score is relatively high (ideally at least 9/10, but at the very minimum, 7/10).
 
