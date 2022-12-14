@@ -226,6 +226,7 @@ However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy inte
 1. Run `cd ~`, then create a new file called `patch_opensmtpd_openssl.sh` and paste in the contents of [this comment](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171#issuecomment-1218503481):
 2. Make the script executable using `chmod +x patch_opensmtpd_openssl.sh`.
 3. Run the script using `./patch_opensmtpd_openssl.sh`
+4. Grab a coffee and find something interested to read. This step will take a while!
 
 > _**NB:**: During the installation, a purple text UI will appear on the screen prompting you to answer some questions. For **Daemons using outdated libraries**, keep the default selections; Just press enter. For **Configuring opensmtpd**, enter in "forum.dev.spinalcordmri.org" for the system mail name, then press enter.._
 
