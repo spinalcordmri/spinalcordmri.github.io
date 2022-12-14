@@ -338,7 +338,16 @@ Once you've confirmed that the SSL certs are present, you can start the mail ser
 systemctl enable --now opensmtpd
 ```
 
-#### 5.4 Test mail delivery
+#### 5.4 Test mail server connectivity
+
+You should be able to connect to the mail server by running:
+
+```console
+root@forum:~# nc forum.dev.spinalcordmri.org 587
+220 forum.dev.spinalcordmri.org ESMTP OpenSMTPD
+```
+
+#### 5.5 Test mail delivery
 
 To create the first admin account on the newly-installed Discourse forum, email delivery must be working, because Discourse will need to send out a confirmation email.
 
@@ -380,11 +389,11 @@ With each of these tests, your goal here is to ensure that:
 
 Once you send your test message, you can click "View my results" on the mail-tester webpage. It will give you feedback on things that need to be changed. So, try to iteratively address the feedback, send a new test message, and refresh the page until you get a high score.
 
-#### 5.5 Create your first admin account
+#### 5.6 Create your first admin account
 
 Navigate to the page https://forum.dev.spinalcordmri.org/, and follow the instruction to create an admin email account. Discourse will send you a confirmation email. If you've set up mail correctly, you should receive the email and be able to finish making your account.
 
-#### 5.6 Configure the forum
+#### 5.7 Configure the forum
 
 Ideally, we should have a backup of the Discourse forum saved somewhere, such that you can load the backup into the new forum installation and be up and running like normal.
 
