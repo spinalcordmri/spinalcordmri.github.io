@@ -179,7 +179,7 @@ root@forum:~# sudo nano /etc/mailname
 forum.dev.spinalcordmri.org
 ```
 
-Additionally, edit the `/etc/hosts` file to ensure that it looks like the following:
+Additionally, edit the `/etc/hosts` file to ensure that the hostname of the server (`forum.dev.spinalcordmri.org`) maps to the server's permanent IP address [instead of `127.0.1.1`](https://qref.sourceforge.net/quick/ch-gateway.en.html#s-net-dns).
 
 ```console
 root@forum:~# sudo nano /etc/hosts
@@ -190,7 +190,7 @@ root@forum:~# sudo nano /etc/hosts
 # b.) change or remove the value of 'manage_etc_hosts' in
 #     /etc/cloud/cloud.cfg or cloud-config from user-data
 #
-127.0.1.1 forum.dev.spinalcordmri.org
+142.93.152.255 forum.dev.spinalcordmri.org
 127.0.0.1 localhost
 
 # The following lines are desirable for IPv6 capable hosts
