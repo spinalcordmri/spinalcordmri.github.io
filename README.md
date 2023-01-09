@@ -108,7 +108,7 @@ You can now use the red "Add New Record" button to add 3 new records in the foll
 Type | Host | Value | TTL
 -- | -- | -- | --
 A Record | {subdomain} | 142.93.152.255 | Automatic
-TXT Record | {subdomain} | v=spf1 a mx ip4:142.93.152.255 include:spf.efwd.registrar-servers.com ~all | Automatic
+TXT Record | {subdomain} | v=spf1 a mx ip4:142.93.152.255 ~all | Automatic
 TXT Record | _dmarc.{subdomain} | v=DMARC1; p=none | Automatic
 
 These entries accomplish the following:
