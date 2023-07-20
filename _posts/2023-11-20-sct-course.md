@@ -13,7 +13,7 @@ Course on the Spinal Cord Toolbox (SCT) software.
 
 The workshop is **free** 🙂
 
-👉 Please register [here](TODO) so we have an idea of the number of attendees.
+👉 Please register [here](https://forms.gle/oK4NrRgHPQB7EuGA8) so we have an idea about the number of attendees.
 
 
 ## How to connect
