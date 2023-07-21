@@ -25,9 +25,9 @@ The workshop is **free** 🙂
 
 ## How to connect
 
-🎥 [Zoom link](TODO)
+🎥 [Zoom link](https://polymtl-ca.zoom.us/j/87975574519)
 
-🗒 [Miro board](TODO). This board is used as a brainstorming platform, and if you have ideas/suggestions. You will need to create a login to be able to view/edit this board. 
+🗒 [Miro board](https://miro.com/app/board/uXjVM0Q5dbY=/). This board is used as a brainstorming platform, and if you have ideas/suggestions. You will need to create a login to be able to view/edit this board. 
 
 
 ## Agenda
@@ -39,14 +39,14 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 |---|---|
 | 10:00 | Welcome speech |
-| 10:15 | SCT course (more details to com) |
+| 10:15 | SCT course (more details to come) |
 | 14:00 | Adjourn meeting |
 
 **November 21th**
 
 |---|---|
 | 10:00 | Welcome speech |
-| 10:15 | SCT course (more details to com) |
+| 10:15 | SCT course (more details to come) |
 | 14:00 | Adjourn meeting |
 
 ## Minutes of the meeting
