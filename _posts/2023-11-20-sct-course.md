@@ -27,7 +27,7 @@ The workshop is **free** 🙂
 
 🎥 [Zoom link](https://polymtl-ca.zoom.us/j/87975574519)
 
-🗒 [Miro board](https://miro.com/app/board/uXjVM0Q5dbY=/). This board is used as a brainstorming platform, and if you have ideas/suggestions. You will need to create a login to be able to view/edit this board. 
+🗒 [Miro board](https://miro.com/welcomeonboard/VW9ud1E4RUJBdjliVDNWTTBtUXROQXdGU0FpcHptQnc4Q3N5T2dtNzhrV2VTUUEzeU9yd2Y1ZnNFS09wOFViQnwzNDU4NzY0NTI0NTcxOTQ0MzUwfDI=?share_link_id=563404211084). This board is used as a brainstorming platform, and if you have ideas/suggestions. You will need to create a login to be able to view/edit this board. 
 
 
 ## Agenda
