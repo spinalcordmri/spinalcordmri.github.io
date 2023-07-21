@@ -27,7 +27,7 @@ The workshop is **free** 🙂
 
 🎥 [Zoom link](https://polymtl-ca.zoom.us/j/87975574519)
 
-🗒 [Miro board](https://miro.com/app/board/uXjVM0Q5dbY=/?share_link_id=203499920049). This board is used as a brainstorming platform, and if you have questions/ideas/suggestions to share. 
+🗒 [Miro board](https://miro.com/app/board/uXjVM0Q5dbY=/?share_link_id=203499920049). This board is used as a visual communication platform. If you have questions/ideas/suggestions to share, please contribute to the board.
 
 
 ## Agenda
