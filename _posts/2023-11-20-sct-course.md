@@ -39,14 +39,14 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 |---|---|
 | 10:00 | Welcome speech |
-| 10:15 | SCT course (more details to come) |
+| 10:15 | SCT course (course material will be available before the meeting) |
 | 14:00 | Adjourn meeting |
 
 **November 21th**
 
 |---|---|
-| 10:00 | Welcome speech |
-| 10:15 | SCT course (more details to come) |
+| 10:15 | SCT course (course material will be available before the meeting) |
+| 13:00 | Feedback from users, suggestions for new features |
 | 14:00 | Adjourn meeting |
 
 ## Minutes of the meeting
