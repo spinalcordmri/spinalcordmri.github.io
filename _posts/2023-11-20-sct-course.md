@@ -16,6 +16,8 @@ Course on the Spinal Cord Toolbox (SCT) software.
 
 The general aim of this 2-day course is to learn how to analyse spinal cord quantitative MRI data. There will first be an introduction presenting the challenges/solutions of spinal cord MRI, followed by a general overview of the Spinal Cord Toolbox (SCT) and its applications in various diseases. Then, the course will dive into the various processes of spinal cord MRI analysis, from segmentation, to the registration to a template, to the extraction of quantitative metrics (diffusion MRI, magnetization transfer). We will also touch base on various "niche" applications, such as the quantification of compression in spinal cord injured patients, fMRI analysis, etc. We will also discuss "best practice" for running reproducible analyses using batch scripts, for processing multiple subjects at once, for doing quality control and manual corrections.
 
+Note that this is a "hands-on" workshop: you will actively participate by running SCT commands at the same time as the presenters. So please make sure to have the latest version of SCT installed before the workshop.
+
 ## Registration and pricing
 
 The workshop is **free** 🙂
