@@ -57,4 +57,4 @@ To come.
 
 ## Organizers
 
-[SCT team](https://github.com/spinalcordtoolbox/spinalcordtoolbox/people).
+[SCT team](https://github.com/orgs/spinalcordtoolbox/people).
