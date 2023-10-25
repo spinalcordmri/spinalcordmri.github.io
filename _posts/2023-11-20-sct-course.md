@@ -31,6 +31,9 @@ The workshop is **free** 🙂
 
 🗒 [Miro board](https://miro.com/app/board/uXjVM0Q5dbY=/?share_link_id=203499920049). This board is used as a visual communication platform. If you have questions/ideas/suggestions to share, please contribute to the board (you will need to create an account and log in). 
 
+## Support
+
+If cannot connect to the meeting, or if you have any trouble installing SCT v6.1, please email sct_developers@googlegroups.com and one of SCT's developers will be happy to help.
 
 ## Agenda
 
