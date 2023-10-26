@@ -44,13 +44,17 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 |---|---|
 | 10:00 | Welcome speech |
-| 10:15 | SCT course (course material will be available before the meeting) |
+| 10:15 | SCT course ([course material](https://docs.google.com/presentation/d/1t40Fd0fS0SwWR5FU_GWKEvHkB9d96LVddLQW6L3QAx0)) |
+| 12:00 | _Lunch Break_ |
+| 12:30 | Resume course |
 | 14:00 | Adjourn meeting |
 
 **November 21th**
 
 |---|---|
-| 10:15 | SCT course (course material will be available before the meeting) |
+| 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1t40Fd0fS0SwWR5FU_GWKEvHkB9d96LVddLQW6L3QAx0)) |
+| 12:00 | _Lunch Break_ |
+| 12:30 | Resume course |
 | 13:00 | Feedback from users, suggestions for new features |
 | 14:00 | Adjourn meeting |
 
