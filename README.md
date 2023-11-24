@@ -164,9 +164,9 @@ You can connect to the server either through SSH (assuming your local device con
 
 ```console
 user@device:~$ ssh root@{subdomain}.spinalcordmri.org
-Welcome to Ubuntu 22.04.1 LTS (GNU/Linux 5.15.0-50-generic x86_64)
+Welcome to Ubuntu 23.10 (GNU/Linux 6.5.0-13-generic x86_64)
 
-Last login: Fri Dec  9 23:06:11 2022 from 162.243.188.66
+Last login: Fri Dec  9 23:06:11 2023 from 162.243.188.66
 root@forum:~# 
 ```
 
@@ -226,26 +226,9 @@ We run a small mail server on the same server as Discourse for it to send notifc
 
 First, we must install our mail server software of choice, [`opensmtpd`](https://www.opensmtpd.org/). 
 
-However, we cannot use `sudo apt-get install opensmtpd` because of [a buggy interaction with OpenSSL 3.0](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171), which Ubuntu 22.04 installs by default. To get around this, we must build `openssl` and `opensmtpd` from their source code, to ensure that `opensmptd` uses OpenSSL v1.1.1, rather than v3.0. Thankfully, one of SCT's developers (@kousu) has created a script that will automate this procedure:
-
-1. Run `cd ~`, then create a new file called `patch_opensmtpd_openssl.sh` and paste in the contents of [this comment](https://github.com/OpenSMTPD/OpenSMTPD/issues/1171#issuecomment-1218503481):
-2. Make the script executable using `chmod +x patch_opensmtpd_openssl.sh`.
-3. Run the script using `./patch_opensmtpd_openssl.sh`
-4. Grab a coffee and find something interested to read. This step will take a while!
-
-> _**NB:**: During the installation, a purple text UI will appear on the screen prompting you to answer some questions. For **Daemons using outdated libraries**, keep the default selections; Just press enter. For **Configuring opensmtpd**, enter in "{subdomain}.spinalcordmri.org" for the system mail name, then press enter._
-
-You can verify that `opensmptd` was built and installed correctly by running:
-
-```console
-root@forum:~# ldd `which smtpd`
-    [...]
-	libcrypto.so.1.1 => /opt/openssl-1.1.1q/lib/libcrypto.so.1.1 (0x00007f5ed6eb2000)
-	libssl.so.1.1 => /opt/openssl-1.1.1q/lib/libssl.so.1.1 (0x00007f5ed6e19000)
-    [...]
 ```
-
-If `libcrypto.so.1.1` and `libssl.so.1.1` are linked to `/opt/openssl-1.1.1q/`, then you've installed `opensmtpd` correctly.
+# apt-get install -y opensmtpd
+```
 
 #### 4.2 Configure mail server
 
