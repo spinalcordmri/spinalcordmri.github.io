@@ -22,7 +22,7 @@ The general aim of this 2-day course is to learn how to analyse spinal cord quan
 
 The workshop is **free** 🙂
 
-👉 Please register [here](https://forms.gle/oK4NrRgHPQB7EuGA8) so we have an idea about the number of attendees.
+👉 Please register [here](https://forms.gle/Ggz8UQ5Kb8oiVqXd7) so we have an idea about the number of attendees.
 
 ## How to connect
 
