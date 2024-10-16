@@ -10,6 +10,13 @@ location: Online
 ![Image SCT course]({{ "assets/logo_sct_course.png" | absolute_url }}){:style="float: left; margin-right: 25px"}
 
 &nbsp;
+
+> #### ⚠️ Note for past attendees ⚠️
+>
+> If you have attended the SCT Course in the past, and you are already familiar with the "core" usage of SCT, then we welcome you to join at a special time: 12:30PM December 10th, 2024 **Eastern Time Zone (UTC-05:00)**, i.e. immediately following the lunch break on Day 2 of the course.
+>
+> Shortly after this time, we will present a section on the **New and Upcoming Features** of SCT, along with a "free period" for questions and feedback. Regardless of when you join, though, your attendance and participation will be greatly appreciated.
+
 &nbsp;
 
 Course on the Spinal Cord Toolbox (SCT) software.
@@ -53,7 +60,7 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 |---|---|
 | 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1uUOpgshwnyC2p8r2GalXlUczQLpX6PfJbtzNELxbqdI)) |
 | 12:00 | _Lunch Break_ |
-| 12:30 | Resume course |
+| 12:30 | Resume course (Past attendees join) |
 | 13:00 | Feedback from users, suggestions for new features |
 | 14:00 | Adjourn meeting |
 
