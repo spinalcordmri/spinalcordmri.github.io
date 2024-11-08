@@ -74,4 +74,4 @@ To come.
 
 ### Sponsors
 
-[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-right: 20px; height: 60px;"  }](https://praxisinstitute.org/)
+[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-right: 0px; height: 120px;"  }](https://praxisinstitute.org/)
