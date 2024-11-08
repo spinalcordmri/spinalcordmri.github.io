@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SCT Course"
+title:  "SCT Course 2023"
 duration: "Nov 20-21, 2023"
 location_small: Online
 location: Online
