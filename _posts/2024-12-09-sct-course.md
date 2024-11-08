@@ -72,6 +72,6 @@ To come.
 
 [SCT team](https://github.com/orgs/spinalcordtoolbox/people).
 
-### Sponsors
+## Sponsors
 
-[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-right: 0px; height: 120px;"  }](https://praxisinstitute.org/)
+[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-left: 0px; height: 120px;"  }](https://praxisinstitute.org/)
