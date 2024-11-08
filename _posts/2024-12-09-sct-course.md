@@ -11,19 +11,19 @@ location: Online
 
 &nbsp;
 
-> #### ⚠️ Note for past attendees ⚠️
->
-> If you have attended the SCT Course in the past, and you are already familiar with the "core" usage of SCT, then we welcome you to join at a special time: 12:30PM December 10th, 2024 **Eastern Time Zone (UTC-05:00)**, i.e. immediately following the lunch break on Day 2 of the course.
->
-> Shortly after this time, we will present a section on the **New and Upcoming Features** of SCT, along with a "free period" for questions and feedback. Regardless of when you join, though, your attendance and participation will be greatly appreciated.
-
-&nbsp;
-
 Course on the Spinal Cord Toolbox (SCT) software.
 
 The general aim of this 2-day course is to learn how to analyse spinal cord quantitative MRI data. There will first be an introduction presenting the challenges/solutions of spinal cord MRI, followed by a general overview of the Spinal Cord Toolbox (SCT) and its applications in various diseases. Then, the course will dive into the various processes of spinal cord MRI analysis, from segmentation, to the registration to a template, to the extraction of quantitative metrics (diffusion MRI, magnetization transfer). We will also touch base on various "niche" applications, such as the quantification of compression in spinal cord injured patients, fMRI analysis, etc. We will also discuss "best practice" for running reproducible analyses using batch scripts, for processing multiple subjects at once, for doing quality control and manual corrections.
 
 **This is a "hands-on" workshop**: you will actively participate by running SCT commands at the same time as the presenters. So please make sure to have version 6.5 of SCT (release date: November) installed before the workshop.
+
+&nbsp;
+
+> **⚠️ Note for past attendees ⚠️**
+>
+> If you have attended the SCT Course in the past, and you are already familiar with the "core" usage of SCT, then we welcome you to join at a special time: 12:30PM December 10th, 2024 **Eastern Time Zone (UTC-05:00)**, i.e. immediately following the lunch break on Day 2 of the course.
+>
+> Shortly after this time, we will present a section on the **New and Upcoming Features** of SCT, along with a question period and feedback. Regardless of when you join, though, your attendance and participation will be greatly appreciated.
 
 ## Registration and pricing
 
