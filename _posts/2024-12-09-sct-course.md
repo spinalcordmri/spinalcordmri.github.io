@@ -61,12 +61,8 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 | 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1uUOpgshwnyC2p8r2GalXlUczQLpX6PfJbtzNELxbqdI)) |
 | 12:00 | _Lunch Break_ |
 | 12:30 | Resume course (Past attendees join) |
-| 13:00 | Feedback from users, suggestions for new features |
+| 13:00 | Feedback from users, announce results of the [poll](https://forms.gle/7ewfXVhvRPwLxu5A8) (please participate!) |
 | 14:00 | Adjourn meeting |
-
-## Minutes of the meeting
-
-To come.
 
 ## Organizers
 
