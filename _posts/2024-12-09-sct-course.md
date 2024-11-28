@@ -81,3 +81,4 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 [![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://www.siemens-healthineers.com/)
 [![Polytechnique Montreal]({{ "assets/logo_polytechnique_ge.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://www.polymtl.ca/ge/)
+[![TransMedTech Institute]({{ "assets/logo_transmedtech.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://transmedtech.org/en/)
