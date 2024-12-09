@@ -33,7 +33,7 @@ The workshop is **free** 🙂
 
 ## How to connect
 
-🎥 [Zoom link](https://polymtl-ca.zoom.us/j/87975574519)
+🎥 [Zoom link](https://polymtl-ca.zoom.us/j/81476209376)
 
 Please note that the meeting will be recorded and uploaded on the SCT website.
 
