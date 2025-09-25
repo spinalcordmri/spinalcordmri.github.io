@@ -70,7 +70,12 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 ## Sponsors
 
+&nbsp;
+
+[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-left: 0px; height: 60px;"  }](https://praxisinstitute.org/)
 [![Wings For Life]({{ "assets/logo_wingsforlife_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://www.wingsforlife.com/uk/)
 [![Spinal Research]({{ "assets/logo_spinal_research_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://spinal-research.org/)
+
+&nbsp;
 
 More to come! 🎉
