@@ -50,7 +50,7 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 |---|---|
 | 10:00 | Welcome speech |
-| 10:15 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM) |
+| 10:15 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM)) |
 | 12:00 | _Lunch Break_ |
 | 12:30 | Resume course |
 | 14:00 | Adjourn meeting |
@@ -58,7 +58,7 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 **December 10th**
 
 |---|---|
-| 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM) |
+| 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM)) |
 | 12:00 | _Lunch Break_ |
 | 12:30 | Resume course (Past attendees join) |
 | 13:00 | Feedback from users, announce results of the poll (TBD) |
