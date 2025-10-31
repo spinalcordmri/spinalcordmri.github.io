@@ -46,7 +46,7 @@ If you are unable to connect to the meeting, or if you have any trouble installi
 This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 
-**December 9th**
+**December 8th**
 
 |---|---|
 | 10:00 | Welcome speech |
@@ -55,7 +55,7 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 | 12:30 | Resume course |
 | 14:00 | Adjourn meeting |
 
-**December 10th**
+**December 9th**
 
 |---|---|
 | 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM)) |
