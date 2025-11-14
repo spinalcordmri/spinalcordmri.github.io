@@ -21,7 +21,7 @@ The general aim of this 2-day course is to learn how to analyse spinal cord quan
 
 > **⚠️ Note for past attendees ⚠️**
 >
-> If you have attended the SCT Course in the past, and you are already familiar with the "core" usage of SCT, then we welcome you to join at a special time: 12:30PM December 10th, 2024 **Eastern Time Zone (UTC-05:00)**, i.e. immediately following the lunch break on Day 2 of the course.
+> If you have attended the SCT Course in the past, and you are already familiar with the "core" usage of SCT, then we welcome you to join at a special time: 12:30PM December 9th, 2025 **Eastern Time Zone (UTC-05:00)**, i.e. immediately following the lunch break on Day 2 of the course.
 >
 > Shortly after this time, we will present a section on the **New and Upcoming Features** of SCT, along with a question period and feedback. Regardless of when you join, though, your attendance and participation will be greatly appreciated.
 
