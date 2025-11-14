@@ -72,12 +72,11 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 &nbsp;
 
-[![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="left; margin-left: 0px; height: 60px;"  }](https://www.siemens-healthineers.com/)
-[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://praxisinstitute.org/)
+[![Praxis institute]({{ "assets/logo_praxis.png" | absolute_url }}){:style="left; margin-left: 0px; height: 60px;"  }](https://praxisinstitute.org/)
 [![Wings For Life]({{ "assets/logo_wingsforlife_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://www.wingsforlife.com/uk/)
 [![Spinal Research]({{ "assets/logo_spinal_research_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://spinal-research.org/)
 [![Biospective]({{ "assets/logo_biospective2024.jpg" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://biospective.com/)
 
 &nbsp;
 
-More to come! 🎉
+[![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="left; margin-left: 0px; height: 60px;"  }](https://www.siemens-healthineers.com/)
