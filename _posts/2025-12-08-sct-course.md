@@ -29,7 +29,7 @@ The general aim of this 2-day course is to learn how to analyse spinal cord quan
 
 The workshop is **free** 🙂
 
-👉 Please register [here](https://forms.gle/1MzNT98rw2qD4F6d6) so we have an idea about the number of attendees.
+👉 Please register [here](https://forms.gle/1MzNT98rw2qD4F6d6) so we have an idea about the number of attendees. Also, please fill out the [user feedback poll](https://forms.gle/D7X5y1MPfTwd1ZAT7) if you plan on attending, as it helps inform us how to direct our future development efforts.
 
 ## How to connect
 
@@ -61,7 +61,7 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 | 10:00 | SCT course ([course material](https://docs.google.com/presentation/d/1fGGHDDFwSc0lJA7FBn8dlE-5qDjQskWSlet3p1ieHVM)) |
 | 12:00 | _Lunch Break_ |
 | 12:30 | Resume course (Past attendees join) |
-| 13:00 | Feedback from users, announce results of the poll (TBD) |
+| 13:00 | Feedback from users, announce results of the [poll](https://forms.gle/D7X5y1MPfTwd1ZAT7) |
 | 14:00 | Adjourn meeting |
 
 ## Organizers
