@@ -72,13 +72,17 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 &nbsp;
 
-[![Polytechnique Montreal]({{ "assets/logo_polytechnique_2025.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.polymtl.ca/ge/)
+[![Wings For Life]({{ "assets/logo_wingsforlife_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://www.wingsforlife.com/uk/)
+[![Spinal Research]({{ "assets/logo_spinal_research_2024.png" | absolute_url }}){:style="left; margin-left: 20px; height: 60px;"  }](https://spinal-research.org/)
 [![Biospective]({{ "assets/logo_biospective2024.jpg" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://biospective.com/)
 
 &nbsp;
 
 [![Philips]({{ "assets/philips_logo.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.philips.ca/healthcare)
 [![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.siemens-healthineers.com/)
+[![Polytechnique Montreal]({{ "assets/logo_polytechnique_2025.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.polymtl.ca/ge/)
 [![TransMedTech]({{ "assets/logo_transmedtech.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://transmedtech.org/en/)
+
+&nbsp;
 
 More to come!
