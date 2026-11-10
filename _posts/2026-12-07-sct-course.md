@@ -79,8 +79,8 @@ This is a two-day workshop. **Times are Eastern Time Zone (UTC-05:00)**:
 
 &nbsp;
 
-[![Philips]({{ "assets/philips_logo.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.philips.ca/healthcare)
-[![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.siemens-healthineers.com/)
+[![Philips]({{ "assets/philips_logo.png" | absolute_url }}){:style="margin-left: 20px; height: 50px;"}](https://www.philips.ca/healthcare)
+[![Siemens]({{ "assets/logo_siemens_healthineers.png" | absolute_url }}){:style="margin-left: 20px; height: 50px;"}](https://www.siemens-healthineers.com/)
 [![Polytechnique Montreal]({{ "assets/logo_polytechnique_2025.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://www.polymtl.ca/ge/)
 [![TransMedTech]({{ "assets/logo_transmedtech.png" | absolute_url }}){:style="margin-left: 20px; height: 60px;"}](https://transmedtech.org/en/)
 
